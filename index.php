@@ -1,13 +1,6 @@
-<?php
+<!-- index.php -->
+<?php get_header(); ?>
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>LIndex</title>
-</head>
-<body>
 <?php
 
 if (have_posts()) {
@@ -24,5 +17,6 @@ if (have_posts()) {
 }
 
 ?>
-</body>
-</html>
+
+<?php get_footer(); ?>
+<!-- /index.php -->
