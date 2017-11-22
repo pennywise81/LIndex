@@ -1,7 +1,7 @@
 <?php
 
 /*
-Removes all scripts/styles in the head of the document.
+Removes all scripts/styles/metas in the head of the document.
 
 https://mfarazali.wordpress.com/2016/04/29/remove-junk-from-head/
 */
@@ -19,3 +19,6 @@ remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('wp_head', 'wp_resource_hints', 2);
+remove_action('wp_head', 'rest_output_link_wp_head');
+remove_action('wp_head', 'wp_oembed_add_discovery_links');
+remove_action('template_redirect', 'rest_output_link_header', 11, 0);
