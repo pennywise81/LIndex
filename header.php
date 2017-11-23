@@ -7,6 +7,10 @@
   <?php wp_head(); ?>
 </head>
 <body>
+  <header>
+    <h2><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h2>
+    <p><?php bloginfo('description'); ?></p>
+  </header>
 <?php
 
 if (has_nav_menu('header-menu')) {

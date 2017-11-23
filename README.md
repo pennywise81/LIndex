@@ -8,10 +8,12 @@ based website.
 - [x] removed head clutter
 - [x] added a menu
 - [x] added basic stylesheet
+- [x] added a visual header
 
 #### TODOs
 
-- [ ] add a visual header
+- [ ] responsive menu and header
 - [ ] add a sidebar
+- [ ] add a footer
 - [ ] add a favicon
 - [ ] add basic comment support

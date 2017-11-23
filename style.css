@@ -25,7 +25,7 @@ html {
   padding: 0;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+body {
   background: #f1f1f1;
   color: #444;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
@@ -68,4 +68,15 @@ img {
   margin: 0 auto;
   max-width: 1280px;
   padding: 0 1rem;
+}
+
+header {
+  background: #444;
+  color: #f1f1f1;
+  padding: 1rem;
+}
+
+header a {
+  color: #f1f1f1;
+  text-decoration: none;
 }
