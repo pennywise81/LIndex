@@ -1,3 +1,71 @@
 /*
  Theme Name: LIndex
 */
+
+html {
+  box-sizing: border-box;
+  font-size: 4vw;
+}
+
+@media screen and (min-width: 25rem) { /* 400px */
+  html {
+    font-size: 3vw;
+  }
+}
+
+@media screen and (min-width: 50rem) { /* 800px */
+  html {
+    font-size: 1.5vw;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  background: #f1f1f1;
+  color: #444;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+p {
+  line-height: 1.5rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+a {
+  color: #444;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 1rem;
+}

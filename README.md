@@ -6,11 +6,12 @@ based website.
 #### Changelog
 
 - [x] removed head clutter
-- [x] add a menu
+- [x] added a menu
+- [x] added basic stylesheet
 
 #### TODOs
 
-- [ ] add stylesheet
 - [ ] add a visual header
 - [ ] add a sidebar
+- [ ] add a favicon
 - [ ] add basic comment support
