@@ -17,7 +17,8 @@ if (has_nav_menu('header-menu')) {
   // show menu 'Header Menu' if it was added in the designer
   wp_nav_menu(
     array(
-      'theme_location' => 'header-menu'
+      'theme_location' => 'header-menu',
+      'container_class' => 'menu-wrapper'
     )
   );
 }
@@ -25,7 +26,8 @@ else {
   // list a menu with all pages including 'home'
   wp_page_menu(
     array(
-      'show_home' => 'Home'
+      'show_home' => 'Home',
+      'menu_class' => 'menu-wrapper'
     )
   );
 }
