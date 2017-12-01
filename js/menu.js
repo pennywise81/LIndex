@@ -6,14 +6,9 @@ addMenuButton = function() {
   }).appendTo('.menu-wrapper');
 }
 
-toggleMenu = function() {
-  //
-}
-
 $(document).ready(function() {
   var menuButton = addMenuButton(),
     menuWrapper = $('.menu-wrapper');
-
 
   menuWrapper.on('touchend click', '.menu-toggle', function(e) {
     e.stopPropagation();
