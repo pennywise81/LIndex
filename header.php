@@ -18,7 +18,7 @@ if (has_nav_menu('header-menu')) {
   wp_nav_menu(
     array(
       'theme_location' => 'header-menu',
-      'container_class' => 'menu-wrapper'
+      'container_class' => 'menu-wrapper closed'
     )
   );
 }
@@ -27,7 +27,7 @@ else {
   wp_page_menu(
     array(
       'show_home' => 'Home',
-      'menu_class' => 'menu-wrapper'
+      'menu_class' => 'menu-wrapper closed'
     )
   );
 }

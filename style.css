@@ -1,4 +1,4 @@
-/*
+
  Theme Name: LIndex
 */
 
@@ -24,6 +24,9 @@ html {
 Fluid Typography END
 */
 
+/*
+Basic reset START
+*/
 html {
   box-sizing: border-box;
 }
@@ -72,6 +75,25 @@ img {
   max-width: 100%;
   height: auto;
 }
+/*
+Basic reset END
+*/
+
+/*
+Helping classes START
+*/
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+/*
+Helping classes END
+*/
 
 .container {
   margin: 0 auto;
@@ -93,9 +115,51 @@ header a {
 /*
 Menu START
 */
-.menu-wrapper {}
+.menu-wrapper {
+  background: #444;
+  padding-top: 3rem;
+  position: relative;
+}
+
+.menu-wrapper.closed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s;
+}
+
+.menu-wrapper.open {
+  max-height: 999px;
+  overflow: auto;
+  transition: max-height .3s;
+}
+
+.menu-wrapper .menu-toggle {
+  border: none;
+  padding: 0;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: auto;
+}
+
+.hamburger-inner,
+.hamburger-inner:after,
+.hamburger-inner:before {
+  background-color: #f1f1f1 !important;
+}
 
 .menu-wrapper > ul {
+  background: #444;
+}
+
+.menu-wrapper > ul::before,
+.menu-wrapper > ul::after {
+  content: ' ';
+  display: table;
+}
+
+.menu-wrapper > ul::after {
+  clear: both;
 }
 
 .menu-wrapper ul.sub-menu {}
@@ -114,7 +178,7 @@ Menu START
   border-bottom: 1px solid #f1f1f1;
   display: inline-block;
   text-decoration: none;
-  padding: .5rem 0 .5rem 1rem;
+  padding: .5rem;
   width: 100%;
 }
 
@@ -133,6 +197,74 @@ Menu START
 .menu-wrapper li.current_page_item {}
 
 .menu-wrapper li.current_page_item a {}
+
+/*
+At this with the menu will toggle
+*/
+@media screen and (min-width: 450px) {
+  .menu-wrapper .menu-toggle {
+    display: none;
+  }
+
+  .menu-wrapper.open,
+  .menu-wrapper.closed,
+  .menu-wrapper {
+    max-height: none;
+    overflow: visible;
+    padding-top: 0;
+  }
+
+  .menu-wrapper > ul {}
+
+  .menu-wrapper > ul > li {
+    display: block;
+    float: left;
+    position: relative;
+  }
+
+  .menu-wrapper ul.sub-menu {
+    background: red;
+    opacity: 0;
+    width: 220px;
+    position: absolute;
+    transition: opacity .3s 0s, visibility 0s .3s;
+    visibility: hidden;
+    z-index: 100;
+  }
+
+  .menu-wrapper li:hover ul.sub-menu {
+    opacity: 1;
+    transition-delay: 0s, 0s;
+    visibility: visible;
+  }
+
+  .menu-wrapper ul.sub-menu li {
+    background: transparent;
+  }
+
+  .menu-wrapper a {
+    border-bottom: none;
+  }
+
+  .menu-wrapper a br {
+    content: ' ';
+  }
+
+  .menu-wrapper a br:after {
+    content: ' ';
+  }
+
+  .menu-wrapper li li a {
+    padding-left: .5rem;
+  }
+
+  .menu-wrapper li li li a {
+    padding-left: 1.5rem;
+  }
+
+  .menu-wrapper li li li li a {
+    padding-left: 2.5rem;
+  }
+}
 /*
 Menu END
-*/
