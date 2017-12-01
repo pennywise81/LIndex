@@ -5,6 +5,7 @@ based website.
 
 #### Changelog
 
+- [x] responsive menu and header
 - [x] removed head clutter
 - [x] added a menu
 - [x] added basic stylesheet
@@ -12,7 +13,6 @@ based website.
 
 #### TODOs
 
-- [ ] responsive menu and header
 - [ ] add a sidebar
 - [ ] add a footer
 - [ ] add a favicon

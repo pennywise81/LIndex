@@ -111,6 +111,20 @@ Header START
 header a {
   text-decoration: none;
 }
+
+header h2 {
+  float: left;
+  margin: .5rem .5rem 0 -.5rem;
+}
+
+header .logo {
+  height: 2rem;
+  width: 2rem;
+}
+
+header p {
+  padding-top: .75rem;
+}
 /*
 Header END
 */
@@ -162,7 +176,7 @@ Menu START
 .menu-wrapper a {
   display: inline-block;
   text-decoration: none;
-  padding: .25rem;
+  padding: .5rem 1rem;
   width: 100%;
 }
 
@@ -179,10 +193,9 @@ Menu START
 }
 
 /*
-At this with the menu will toggle
+At this width the menu will toggle
 */
-/*@media screen and (min-width: 450px) {*/
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 450px) {
   .menu-wrapper .menu-toggle {
     display: none;
   }
@@ -197,6 +210,11 @@ At this with the menu will toggle
 
   .menu-wrapper > ul {
     padding: 0 .75rem;
+    text-align: right;
+  }
+
+  .menu-wrapper > ul * {
+    text-align: left;
   }
 
   .menu-wrapper > ul > li {
@@ -225,6 +243,10 @@ At this with the menu will toggle
 
   .menu-wrapper > ul > li > a {
     border-bottom: none;
+  }
+
+  .menu-wrapper a {
+    padding: .5rem .25rem;
   }
 
   .menu-wrapper a br {
