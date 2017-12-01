@@ -1,9 +1,10 @@
-
- Theme Name: LIndex
+/*
+Theme Name: LIndex
 */
 
 /*
 Fluid Typography START
+https://css-tricks.com/snippets/css/fluid-typography/
 */
 html {
   font-size: 16px;
@@ -89,24 +90,36 @@ Helping classes START
 Helping classes END
 */
 
-.container {
+/*
+Layout START
+*/
+[class^="container"] {
   margin: 0 auto;
-  max-width: 1280px;
   padding: 0 1rem;
 }
 
-header {
-  padding: 1rem;
+.container-maxwidth {
+  max-width: 1280px;
 }
+/*
+Layout END
+*/
 
+/*
+Header START
+*/
 header a {
   text-decoration: none;
 }
+/*
+Header END
+*/
 
 /*
 Menu START
 */
 .menu-wrapper {
+  margin: 0 -1rem;
   padding-top: 3rem;
   position: relative;
 }
@@ -146,12 +159,10 @@ Menu START
   display: block;
 }
 
-.menu-wrapper li {}
-
 .menu-wrapper a {
   display: inline-block;
   text-decoration: none;
-  padding: .5rem;
+  padding: .25rem;
   width: 100%;
 }
 
@@ -170,7 +181,8 @@ Menu START
 /*
 At this with the menu will toggle
 */
-@media screen and (min-width: 450px) {
+/*@media screen and (min-width: 450px) {*/
+@media screen and (min-width: 780px) {
   .menu-wrapper .menu-toggle {
     display: none;
   }
@@ -183,17 +195,18 @@ At this with the menu will toggle
     padding-top: 0;
   }
 
-  .menu-wrapper > ul {}
+  .menu-wrapper > ul {
+    padding: 0 .75rem;
+  }
 
   .menu-wrapper > ul > li {
-    display: block;
-    float: left;
+    display: inline-block;
     position: relative;
   }
 
   .menu-wrapper ul.sub-menu {
     opacity: 0;
-    width: 220px;
+    width: 200px;
     position: absolute;
     transition: opacity .3s 0s, visibility 0s .3s;
     visibility: hidden;

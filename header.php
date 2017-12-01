@@ -7,10 +7,10 @@
   <?php wp_head(); ?>
 </head>
 <body>
-  <header>
-    <h2><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h2>
-    <p><?php bloginfo('description'); ?></p>
-  </header>
+  <header class="clearfix">
+    <div class="container-maxwidth">
+      <h2><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h2>
+      <p><?php bloginfo('description'); ?></p>
 <?php
 
 if (has_nav_menu('header-menu')) {
@@ -18,7 +18,8 @@ if (has_nav_menu('header-menu')) {
   wp_nav_menu(
     array(
       'theme_location' => 'header-menu',
-      'container_class' => 'menu-wrapper closed'
+      'container_class' => 'menu-wrapper closed',
+      'menu_class' => 'hans'
     )
   );
 }
@@ -33,6 +34,9 @@ else {
 }
 
 ?>
-  <div class="container">
+    </div>
+  </header>
+
+  <div class="container-maxwidth">
 
 <!-- /header.php -->
