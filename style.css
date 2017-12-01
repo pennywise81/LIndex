@@ -38,8 +38,6 @@ html {
 }
 
 body {
-  background: #f1f1f1;
-  color: #444;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
@@ -61,10 +59,6 @@ h3 {
 p {
   line-height: 1.5rem;
   margin: 0.5rem 0 1rem 0;
-}
-
-a {
-  color: #444;
 }
 
 ol, ul {
@@ -102,13 +96,10 @@ Helping classes END
 }
 
 header {
-  background: #444;
-  color: #f1f1f1;
   padding: 1rem;
 }
 
 header a {
-  color: #f1f1f1;
   text-decoration: none;
 }
 
@@ -116,7 +107,6 @@ header a {
 Menu START
 */
 .menu-wrapper {
-  background: #444;
   padding-top: 3rem;
   position: relative;
 }
@@ -142,16 +132,6 @@ Menu START
   width: auto;
 }
 
-.hamburger-inner,
-.hamburger-inner:after,
-.hamburger-inner:before {
-  background-color: #f1f1f1 !important;
-}
-
-.menu-wrapper > ul {
-  background: #444;
-}
-
 .menu-wrapper > ul::before,
 .menu-wrapper > ul::after {
   content: ' ';
@@ -162,20 +142,13 @@ Menu START
   clear: both;
 }
 
-.menu-wrapper ul.sub-menu {}
-
-.menu-wrapper ul:not(.sub-menu) {}
-
 .menu-wrapper li {
-  background: #444;
   display: block;
 }
 
 .menu-wrapper li {}
 
 .menu-wrapper a {
-  color: #f1f1f1;
-  border-bottom: 1px solid #f1f1f1;
   display: inline-block;
   text-decoration: none;
   padding: .5rem;
@@ -193,10 +166,6 @@ Menu START
 .menu-wrapper li li li li a {
   padding-left: 4rem;
 }
-
-.menu-wrapper li.current_page_item {}
-
-.menu-wrapper li.current_page_item a {}
 
 /*
 At this with the menu will toggle
@@ -223,7 +192,6 @@ At this with the menu will toggle
   }
 
   .menu-wrapper ul.sub-menu {
-    background: red;
     opacity: 0;
     width: 220px;
     position: absolute;
@@ -242,7 +210,7 @@ At this with the menu will toggle
     background: transparent;
   }
 
-  .menu-wrapper a {
+  .menu-wrapper > ul > li > a {
     border-bottom: none;
   }
 

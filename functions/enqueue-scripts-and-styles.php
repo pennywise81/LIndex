@@ -10,6 +10,9 @@ function lindex_enqueue_scripts() {
   // "Hamburgers" css; https://github.com/jonsuh/hamburgers
   wp_enqueue_style('hamburgers', get_template_directory_uri() . '/css/hamburgers.min.css', array('base'), '1.0.0', 'all');
 
+  // Color definitons
+  wp_enqueue_style('custom-colors', get_template_directory_uri() . '/css/colors.css', array('base', 'hamburgers'), '1.0.0', 'all');
+
   //  custom jquery
   wp_deregister_script('jquery');
   wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), '3.2.1', false);

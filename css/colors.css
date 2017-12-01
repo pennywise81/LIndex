@@ -1,0 +1,39 @@
+.foreground-alpha,
+body,
+a
+{
+  color: #444;
+}
+
+.background-alpha,
+header,
+.menu-wrapper,
+.menu-wrapper > ul,
+.menu-wrapper li,
+.menu-wrapper ul.sub-menu
+{
+  background-color: #444;
+}
+
+.foreground-beta,
+header,
+header a,
+.menu-wrapper a
+{
+  color: #f1f1f1;
+}
+
+.background-beta,
+body,
+.hamburger-inner,
+.hamburger-inner:after,
+.hamburger-inner:before
+{
+  background-color: #f1f1f1;
+}
+
+.border-bottom-beta,
+.menu-wrapper a
+{
+  border-bottom: 1px solid #f1f1f1;
+}
