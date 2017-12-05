@@ -2,21 +2,34 @@
  Theme Name: Q-Web-2018
 */
 
+/*
+Fluid Typography START
+https://css-tricks.com/snippets/css/fluid-typography/
+*/
+html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}
+/*
+Fluid Typography END
+*/
+
+/*
+Basic reset START
+*/
 html {
   box-sizing: border-box;
-  font-size: 4vw;
-}
-
-@media screen and (min-width: 25rem) { /* 400px */
-  html {
-    font-size: 3vw;
-  }
-}
-
-@media screen and (min-width: 50rem) { /* 800px */
-  html {
-    font-size: 1.5vw;
-  }
 }
 
 *, *:before, *:after {
@@ -26,8 +39,6 @@ html {
 }
 
 body {
-  background: #f1f1f1;
-  color: #444;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
 }
 
@@ -51,10 +62,6 @@ p {
   margin: 0.5rem 0 1rem 0;
 }
 
-a {
-  color: #444;
-}
-
 ol, ul {
   list-style: none;
 }
@@ -63,20 +70,226 @@ img {
   max-width: 100%;
   height: auto;
 }
+/*
+Basic reset END
+*/
 
-.container {
-  margin: 0 auto;
-  max-width: 1280px;
-  padding: 0 1rem;
+/*
+Helping classes START
+*/
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
 }
 
-header {
-  background: #444;
-  color: #f1f1f1;
-  padding: 1rem;
+.clearfix::after {
+  clear: both;
+}
+/*
+Helping classes END
+*/
+
+/*
+Basic layout START
+*/
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 header a {
-  color: #f1f1f1;
   text-decoration: none;
 }
+
+header h2 {
+  float: left;
+  margin: .5rem .5rem 0 -.5rem;
+}
+
+header .logo {
+  height: 2rem;
+  width: 2rem;
+}
+
+header p {
+  padding-top: .75rem;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  min-height: 10vh;
+}
+/*
+Basic layout END
+*/
+
+/*
+Grid START
+*/
+[class^="container"] {
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container-maxwidth {
+  max-width: 1280px;
+}
+/*
+Grid END
+*/
+
+/*
+Menu START
+*/
+.menu-wrapper {
+  margin: 0 -1rem;
+  padding-top: 3rem;
+  position: relative;
+}
+
+.menu-wrapper.closed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s;
+}
+
+.menu-wrapper.open {
+  max-height: 999px;
+  overflow: auto;
+  transition: max-height .3s;
+}
+
+.menu-wrapper .menu-toggle {
+  border: none;
+  padding: 0;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: auto;
+}
+
+.menu-wrapper > ul::before,
+.menu-wrapper > ul::after {
+  content: ' ';
+  display: table;
+}
+
+.menu-wrapper > ul::after {
+  clear: both;
+}
+
+.menu-wrapper li {
+  display: block;
+}
+
+.menu-wrapper a {
+  display: inline-block;
+  text-decoration: none;
+  padding: .5rem 1rem;
+  width: 100%;
+}
+
+.menu-wrapper li li a {
+  padding-left: 2rem;
+}
+
+.menu-wrapper li li li a {
+  padding-left: 3rem;
+}
+
+.menu-wrapper li li li li a {
+  padding-left: 4rem;
+}
+
+/*
+At this width the menu will toggle
+*/
+@media screen and (min-width: 450px) {
+  .menu-wrapper .menu-toggle {
+    display: none;
+  }
+
+  .menu-wrapper.open,
+  .menu-wrapper.closed,
+  .menu-wrapper {
+    max-height: none;
+    overflow: visible;
+    padding-top: 0;
+  }
+
+  .menu-wrapper > ul {
+    margin-right: 2.5rem;
+    padding: 0 .75rem;
+    text-align: right;
+  }
+
+  .menu-wrapper > ul * {
+    text-align: left;
+  }
+
+  .menu-wrapper > ul > li {
+    display: inline-block;
+    position: relative;
+  }
+
+  .menu-wrapper ul.sub-menu {
+    opacity: 0;
+    width: 200px;
+    position: absolute;
+    transition: opacity .3s 0s, visibility 0s .3s;
+    visibility: hidden;
+    z-index: 100;
+  }
+
+  .menu-wrapper li:hover ul.sub-menu {
+    opacity: 1;
+    transition-delay: 0s, 0s;
+    visibility: visible;
+  }
+
+  .menu-wrapper ul.sub-menu li {
+    background: transparent;
+  }
+
+  .menu-wrapper > ul > li > a {
+    border-bottom: none;
+  }
+
+  .menu-wrapper a {
+    padding: .5rem .25rem;
+  }
+
+  .menu-wrapper a br {
+    content: ' ';
+  }
+
+  .menu-wrapper a br:after {
+    content: ' ';
+  }
+
+  .menu-wrapper li li a {
+    padding-left: .5rem;
+  }
+
+  .menu-wrapper li li li a {
+    padding-left: 1.5rem;
+  }
+
+  .menu-wrapper li li li li a {
+    padding-left: 2.5rem;
+  }
+}
+/*
+Menu END
+
+/*
+Footer START
+*/
+/*
+Footer START
+*/
