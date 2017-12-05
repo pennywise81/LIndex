@@ -25,8 +25,7 @@ if (has_nav_menu('header-menu')) {
   wp_nav_menu(
     array(
       'theme_location' => 'header-menu',
-      'container_class' => 'menu-wrapper closed',
-      'menu_class' => 'hans'
+      'container_class' => 'menu-wrapper closed'
     )
   );
 }
