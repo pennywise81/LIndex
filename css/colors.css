@@ -10,7 +10,8 @@ header,
 .menu-wrapper,
 .menu-wrapper > ul,
 .menu-wrapper li,
-.menu-wrapper ul.sub-menu
+.menu-wrapper ul.sub-menu,
+footer
 {
   background-color: #444;
 }

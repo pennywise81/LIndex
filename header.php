@@ -44,6 +44,6 @@ else {
     </div>
   </header>
 
-  <div class="container-maxwidth">
+  <main class="container-maxwidth">
 
 <!-- /header.php -->

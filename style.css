@@ -91,23 +91,14 @@ Helping classes END
 */
 
 /*
-Layout START
+Basic layout START
 */
-[class^="container"] {
-  margin: 0 auto;
-  padding: 0 1rem;
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
-.container-maxwidth {
-  max-width: 1280px;
-}
-/*
-Layout END
-*/
-
-/*
-Header START
-*/
 header a {
   text-decoration: none;
 }
@@ -125,8 +116,31 @@ header .logo {
 header p {
   padding-top: .75rem;
 }
+
+main {
+  flex: 1;
+}
+
+footer {
+  min-height: 10vh;
+}
 /*
-Header END
+Basic layout END
+*/
+
+/*
+Grid START
+*/
+[class^="container"] {
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container-maxwidth {
+  max-width: 1280px;
+}
+/*
+Grid END
 */
 
 /*
@@ -209,6 +223,7 @@ At this width the menu will toggle
   }
 
   .menu-wrapper > ul {
+    margin-right: 2.5rem;
     padding: 0 .75rem;
     text-align: right;
   }
@@ -271,3 +286,10 @@ At this width the menu will toggle
 }
 /*
 Menu END
+
+/*
+Footer START
+*/
+/*
+Footer START
+*/

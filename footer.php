@@ -1,5 +1,6 @@
 <!-- footer.php -->
-  </div>
+  </main>
+  <footer></footer>
 </body>
 </html>
 <!-- /footer.php -->
