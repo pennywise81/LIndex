@@ -92,11 +92,21 @@ Helping classes END
 
 /*
 Basic layout START
+
+Visual representation of the markup:
+
+<body>
+  <header class="clearfix">
+  <main class="container-maxwidth" />
+    <section class="content" />
+    <aside class="sidebar" />
+  <footer />
+
 */
 body {
   display: flex;
+  flex-direction: column; /* order child elements in columns (header, main, footer) */
   min-height: 100vh;
-  flex-direction: column;
 }
 
 header a {
@@ -121,8 +131,58 @@ header p {
   padding-top: .75rem;
 }
 
+/* MAIN CONTAINER */
 main {
-  flex: 1;
+  display: flex; /* init as flex element for child elements */
+  flex-direction: column; /* order child elements in columns (section.content, aside.sidebar) */
+  flex-grow: 1; /* take all of the available height (height of body - height of header - height of footer) */
+}
+
+/* COLUMN 1 */
+section.content {
+  flex-grow: 1; /* take all the available height, when the sidebar is below the content */
+}
+
+/* COLUMN 2 */
+aside.sidebar {
+  display: flex; /* init as a flex element */
+  flex-direction: row; /* display widgets in (a) row(s) */
+  flex-wrap: wrap; /* display widgets in multiple rows if needed */
+  justify-content: space-between; /* even out the space inbetween the widgets */
+  margin: 0 -.5rem;
+}
+
+aside.sidebar .widget {
+  flex-basis: 10rem; /* base size for the widgets */
+  flex-grow: 1;
+  margin: .5rem;
+}
+
+/* from here, the sidebar will be moved below the content */
+@media screen and (min-width: 650px) {
+  main {
+    flex-direction: row; /* order child elements in rows (section.content, aside.sidebar) */
+  }
+
+  aside.sidebar {
+    display: block;
+    flex-basis: 9rem; /* fixed size for the sidebar */
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0;
+    padding-left: 1rem;
+  }
+
+  aside.sidebar.left {
+    order: -1; /* put it in first column (left hand sidebar) */
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+
+  aside.sidebar .widget {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 footer {
