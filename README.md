@@ -5,6 +5,7 @@ based website.
 
 #### Changelog
 
+- [x] add a sidebar
 - [x] added a footer
 - [x] responsive menu and header
 - [x] removed head clutter
@@ -14,6 +15,6 @@ based website.
 
 #### TODOs
 
-- [ ] add a sidebar
+- [ ] add customization to the sidebar
 - [ ] add a favicon
 - [ ] add basic comment support
