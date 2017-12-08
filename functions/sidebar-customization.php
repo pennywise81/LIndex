@@ -8,11 +8,6 @@ https://premium.wpmudev.org/blog/wordpress-theme-customization-api/
 
 class SidebarCustomizer {
   function register($wp_customize) {
-    // remove the widget customization for now
-    // @TODO: enable widget customization
-    // https://stackoverflow.com/questions/34003932/wordpress-theme-customizer-add-area-for-users-to-move-around-and-organize-widg
-    $wp_customize->remove_panel('widgets');
-
     // add the section for the Sidebar Customizer
     $wp_customize->add_section(
       'sidebar_options',
