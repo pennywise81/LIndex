@@ -8,6 +8,7 @@ if (get_theme_mod('display_sidebar') == false) {
 // vars
 global $post;
 $showSidebar = false;
+$sidebarClass = get_theme_mod('sidebar_side');
 
 // determine the post id
 $id = $post->ID;
@@ -28,7 +29,7 @@ if ($showSidebar == false) {
 
 ?>
 
-<aside class="sidebar">
+<aside class="sidebar <?php echo $sidebarClass; ?>">
 
 <?php
 

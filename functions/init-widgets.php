@@ -43,7 +43,7 @@ function widgets_init() {
   foreach ($pages as $page) {
     register_sidebar(
       array(
-      'name' => __('Seitenleiste für ' . $page['title']),
+      'name' => __('Seitenleiste fÃ¼r ' . $page['title']),
         'id' => 'sidebar-page-' . $page['id'],
         'before_widget' => '<div class="widget">',
         'after_widget' => '</div>',

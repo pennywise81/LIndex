@@ -27,7 +27,8 @@ class SidebarCustomizer {
     // add a setting for displaying the sidebar at all
     $wp_customize->add_setting('display_sidebar',
       array(
-        'default' => true
+        'default' => true,
+        'transport' => 'postMessage'
       )
     );
 
@@ -44,6 +45,29 @@ class SidebarCustomizer {
         )
       )
     );
+
+    // add a setting for displaying the sidebar left or right
+    $wp_customize->add_setting('sidebar_side',
+      array(
+        'default' => 'right',
+        'transport' => 'postMessage'
+      )
+    );
+
+    // add a control for sidebar side
+    $wp_customize->add_control(
+      'sidebar_side',
+      array(
+        'type' => 'select',
+        'label' => __('Ausrichtung'),
+        'section' => 'sidebar_options',
+        'choices' => array(
+            'left' => __('Links'),
+            'right' => __('Rechts')
+        )
+      )
+    );
+
   }
 
   function header_output() {
@@ -52,6 +76,14 @@ class SidebarCustomizer {
 
   function live_preview() {
     // The live preview is enqueued here
+
+    wp_enqueue_script(
+      'theme-customizer-sidebar',
+      get_template_directory_uri() . '/js/theme-customizer-sidebar.js',
+      array('jquery', 'customize-preview'),
+      '',
+      true
+    );
   }
 
 }
