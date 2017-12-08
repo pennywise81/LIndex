@@ -183,13 +183,11 @@ aside.sidebar .widget:last-child {
     width: 9rem;
   }
 
-  /*
   aside.sidebar.left {
     order: -1;
     padding-left: 0;
-    padding-right: 1rem;
+    padding-right: .5rem;
   }
-  */
 
   aside.sidebar .widget {
     margin: .25rem 0;
