@@ -7,3 +7,4 @@ require_once 'functions/register-menus.php';
 require_once 'functions/enqueue-scripts-and-styles.php';
 require_once 'functions/init-widgets.php';
 require_once 'functions/sidebar-customization.php';
+require_once 'functions/remove-filter-wpautop.php';
