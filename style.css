@@ -131,57 +131,72 @@ header p {
   padding-top: .75rem;
 }
 
-/* MAIN CONTAINER */
 main {
   display: flex; /* init as flex element for child elements */
   flex-direction: column; /* order child elements in columns (section.content, aside.sidebar) */
   flex-grow: 1; /* take all of the available height (height of body - height of header - height of footer) */
+  width: 100%;
 }
 
-/* COLUMN 1 */
 section.content {
   flex-grow: 1; /* take all the available height, when the sidebar is below the content */
 }
 
-/* COLUMN 2 */
 aside.sidebar {
   display: flex; /* init as a flex element */
-  flex-direction: row; /* display widgets in (a) row(s) */
-  flex-wrap: wrap; /* display widgets in multiple rows if needed */
-  justify-content: space-between; /* even out the space inbetween the widgets */
-  margin: 0 -.5rem;
+  flex-direction: column;
+  padding-bottom: .5rem;
 }
 
 aside.sidebar .widget {
-  flex-basis: 10rem; /* base size for the widgets */
-  flex-grow: 1;
-  margin: .5rem;
+  margin: .25rem 0;
 }
 
-/* from here, the sidebar will be moved below the content */
+aside.sidebar .widget:first-child {
+  margin-top: 0;
+}
+
+aside.sidebar .widget:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 400px) and (max-width: 649px) {
+  aside.sidebar {
+    flex-direction: row;
+  }
+
+  aside.sidebar .widget {
+    flex-grow: 1; /* they will grow when more space is available */
+    flex-basis: 33.333%;
+    margin: 0 .5rem 0 0;
+  }
+
+  aside.sidebar .widget:last-child {
+    margin-right: 0;
+  }
+}
+
 @media screen and (min-width: 650px) {
   main {
     flex-direction: row; /* order child elements in rows (section.content, aside.sidebar) */
   }
 
   aside.sidebar {
-    display: block;
-    flex-basis: 9rem; /* fixed size for the sidebar */
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin: 0;
-    padding-left: 1rem;
+    flex-direction: column;
+    padding-left: .5rem;
+    width: 9rem;
   }
 
+  /*
   aside.sidebar.left {
-    order: -1; /* put it in first column (left hand sidebar) */
+    order: -1;
     padding-left: 0;
     padding-right: 1rem;
   }
+  */
 
   aside.sidebar .widget {
-    margin: 0;
-    margin-bottom: 1rem;
+    margin: .25rem 0;
   }
 }
 
@@ -197,11 +212,16 @@ Grid START
 */
 [class^="container"] {
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 .container-maxwidth {
   max-width: 1280px;
+}
+
+@media screen and (max-width: 1320px) {
+  .container-maxwidth {
+    padding: 0 .5rem;
+  }
 }
 /*
 Grid END
@@ -350,10 +370,4 @@ At this width the menu will toggle
 }
 /*
 Menu END
-
-/*
-Footer START
-*/
-/*
-Footer END
 */

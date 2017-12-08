@@ -9,7 +9,7 @@
 <body>
   <header class="clearfix">
     <div class="container-maxwidth">
-      <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>">
+      <a href="<?php home_url(); ?>" title="<?php bloginfo('name'); ?>">
         <h2>
           <svg width="221" height="221" viewBox="0 0 221 221" xmlns="http://www.w3.org/2000/svg" class="logo">
             <path class="fill" d="M110,2A109,109,0,1,1,1,111,109,109,0,0,1,110,2Zm38.5,115A32.5,32.5,0,1,1,116,149.5,32.5,32.5,0,0,1,148.5,117Z"/>
