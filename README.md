@@ -16,5 +16,5 @@ based website.
 
 #### TODOs
 
-- [ ] add a favicon
+- [ ] add SVG support to mediathek (via Plugin "SVG Support"); Recommend it on theme switch
 - [ ] add basic comment support
