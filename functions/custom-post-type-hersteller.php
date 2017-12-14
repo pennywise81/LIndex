@@ -34,7 +34,22 @@ function init_posttype_hersteller() {
     'show_ui' => true,
     'show_in_menu' => 'edit.php?post_type=vehicle',
     'menu_icon' => 'dashicons-admin-generic',
-    'supports' => array('title', 'thumbnail')
+    'supports' => array('title', 'thumbnail'),
+
+    /*
+    Erlaubt das Anzeigen im Frontend
+    */
+    'publicly_queryable' => true,
+
+    /*
+    Erlaubt das Hinzufügen einzelner Hersteller zum (Frontend-) Menü
+    */
+    'show_in_nav_menus' => true,
+
+    /*
+    Erlaubt das Hinzufügen einer 'Archiv'-Seite zum (Frontend-) Menü
+    */
+    'has_archive' => true,
  );
 
   register_post_type('manufacturer', $args);
