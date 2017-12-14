@@ -121,16 +121,3 @@ function fahrzeug_custom_columns_content($column_name, $post_ID) {
   }
 }
 add_action('manage_vehicle_posts_custom_column', 'fahrzeug_custom_columns_content', 10, 2);
-
-/*
-Backend-Table erweitern: Spalte(n) sortierbar machen
-*/
-function fahrzeug_custom_columns_sortable($columns) {
-  $columns['manufacturer_name'] = 'manufacturer_name';
-
-  //To make a column 'un-sortable' remove it from the array
-  //unset($columns['date']);
-
-  return $columns;
-}
-add_filter('manage_edit-vehicle_sortable_columns', 'fahrzeug_custom_columns_sortable');
