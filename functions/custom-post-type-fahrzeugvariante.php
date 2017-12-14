@@ -25,9 +25,6 @@ function init_posttype_fahrzeugvariante() {
 
   $args = array(
     'labels' => $labels,
-    'description' => 'Alle Fahrzeugvarianten',
-    'public' => false,
-    'exclude_from_search' => true,
     'show_ui' => true,
     'show_in_menu' => 'edit.php?post_type=vehicle',
     'menu_icon' => 'dashicons-admin-network',

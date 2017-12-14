@@ -31,9 +31,6 @@ function init_posttype_hersteller() {
 
   $args = array(
     'labels' => $labels,
-    'description' => 'Alle Fahrzeughersteller',
-    'public' => false,
-    'exclude_from_search' => true,
     'show_ui' => true,
     'show_in_menu' => 'edit.php?post_type=vehicle',
     'menu_icon' => 'dashicons-admin-generic',

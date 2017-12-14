@@ -25,9 +25,6 @@ function init_posttype_fahrzeug() {
 
   $args = array(
     'labels' => $labels,
-    'description' => 'Alle Fahrzeuge',
-    'public' => false,
-    'exclude_from_search' => true,
     'show_ui' => true,
     'menu_icon' => 'dashicons-admin-network',
     'menu_position' => 6,
