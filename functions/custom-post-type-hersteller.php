@@ -20,7 +20,13 @@ function init_posttype_hersteller() {
     'all_items' => 'Alle Hersteller',
     'search_items' => 'Hersteller suchen',
     'not_found' => 'Kein Hersteller gefunden',
-    'not_found_in_trash' => 'Kein Hersteller im Papierkorb gefunden'
+    'not_found_in_trash' => 'Kein Hersteller im Papierkorb gefunden',
+
+    // "Featured Image" oder "Beitragsbild" umbenennen
+    'featured_image' => 'Hersteller-Logo',
+    'set_featured_image' => 'Logo festlegen',
+    'remove_featured_image' => 'Logo löschen',
+    'use_featured_image' => 'Logo verwenden',
  );
 
   $args = array(
