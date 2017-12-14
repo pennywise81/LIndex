@@ -17,7 +17,7 @@ function init_posttype_hersteller() {
     'new_item' => 'Neuer Hersteller',
     'edit_item' => 'Hersteller bearbeiten',
     'view_item' => 'Hersteller ansehen',
-    'all_items' => 'Alle Hersteller',
+    'all_items' => 'Hersteller',
     'search_items' => 'Hersteller suchen',
     'not_found' => 'Kein Hersteller gefunden',
     'not_found_in_trash' => 'Kein Hersteller im Papierkorb gefunden',
@@ -35,8 +35,8 @@ function init_posttype_hersteller() {
     'public' => false,
     'exclude_from_search' => true,
     'show_ui' => true,
+    'show_in_menu' => 'edit.php?post_type=vehicle',
     'menu_icon' => 'dashicons-admin-generic',
-    'menu_position' => 5,
     'supports' => array('title', 'thumbnail')
  );
 
