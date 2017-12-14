@@ -13,3 +13,4 @@ require_once 'functions/theme-support-post-thumbnails.php';
 // Custom Types
 require_once 'functions/custom-post-type-hersteller.php';
 require_once 'functions/custom-post-type-fahrzeug.php';
+require_once 'functions/custom-post-type-fahrzeugvariante.php';

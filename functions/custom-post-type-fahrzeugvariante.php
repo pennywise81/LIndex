@@ -1,0 +1,123 @@
+<?php
+
+/**
+Fügt den Custom Post Type "Fahrzeugvariante" hinzu
+
+https://codex.wordpress.org/Function_Reference/register_post_type
+*/
+
+function init_posttype_fahrzeugvariante() {
+  $labels = array(
+    'name' => 'Fahrzeugvarianten',
+    'singular_name' => 'Fahrzeugvariante',
+    'menu_name' => 'Fahrzeugvarianten',
+    'name_admin_bar' => 'Fahrzeugvarianten',
+    'add_new' => 'Neu erstellen',
+    'add_new_item' => 'Neue Fahrzeugvariante hinzufügen',
+    'new_item' => 'Neue Fahrzeugvariante',
+    'edit_item' => 'Fahrzeugvariante bearbeiten',
+    'view_item' => 'Fahrzeugvariante ansehen',
+    'all_items' => 'Fahrzeugvarianten',
+    'search_items' => 'Fahrzeugvariante suchen',
+    'not_found' => 'Keine Fahrzeugvariante gefunden',
+    'not_found_in_trash' => 'Keine Fahrzeugvariante im Papierkorb gefunden'
+ );
+
+  $args = array(
+    'labels' => $labels,
+    'description' => 'Alle Fahrzeugvarianten',
+    'public' => false,
+    'exclude_from_search' => true,
+    'show_ui' => true,
+    'show_in_menu' => 'edit.php?post_type=vehicle',
+    'menu_icon' => 'dashicons-admin-network',
+    // 'register_meta_box_cb' => 'fahrzeug_metabox_hersteller',
+    'supports' => array('title')
+ );
+
+  register_post_type('vehiclevariant', $args);
+}
+add_action('init', 'init_posttype_fahrzeugvariante');
+
+/*
+Metabox für Herstellerauswahl hinzufügen
+*/
+// function fahrzeug_metabox_hersteller($post) {
+//   add_meta_box(
+//     'fahrzeug_hersteller',
+//     'Hersteller',
+//     'fahrzeug_metabox_hersteller_cb',
+//     'vehicle',
+//     'normal',
+//     'core'
+//   );
+// }
+// add_action('add_meta_boxes_place', 'fahrzeug_metabox_hersteller');
+
+/*
+Callback-Funktion für die Darstellung der Herstellerauswahl
+*/
+// function fahrzeug_metabox_hersteller_cb($post) {
+//   $parents = get_posts(
+//     array(
+//       'post_type' => 'manufacturer',
+//       'orderby' => 'title',
+//       'order' => 'ASC',
+//       'numberposts' => -1
+//     )
+//   );
+
+//   if (!empty($parents)) {
+//     echo '<select name="parent_id" class="widefat">';
+//     echo '<option value="">Hersteller auswählen</option>';
+
+//     foreach ($parents as $parent) {
+//       printf('<option value="%s"%s>%s</option>', esc_attr($parent->ID), selected($parent->ID, $post->post_parent, false), esc_html($parent->post_title));
+//     }
+
+//     echo "</select>";
+//   }
+// }
+
+/*
+https://www.smashingmagazine.com/2013/12/modifying-admin-post-lists-in-wordpress/
+*/
+
+/*
+Backend-Table erweitern: Spalte(n) hinzufügen/entfernen
+*/
+// function fahrzeug_custom_columns($columns) {
+//   // Titel zwischenspeichern und entfernen
+//   $title = $columns['title'];
+//   unset($columns['title']);
+
+//   // Hersteller hinzufügen
+//   $columns['manufacturer_name'] = 'Hersteller';
+
+//   // Titel als 'Modell' wieder hinzufügen (nach 'Hersteller')
+//   $columns['title'] = 'Modell';
+
+//   // Datum entfernen
+//   unset($columns['date']);
+
+//   return $columns;
+// }
+// add_filter('manage_vehicle_posts_columns', 'fahrzeug_custom_columns');
+
+/*
+Backend-Table erweitern: Spalte(n) befüllen
+*/
+// function fahrzeug_custom_columns_content($column_name, $post_ID) {
+//   if ($column_name == 'manufacturer_name') {
+//     $parent_ID = wp_get_post_parent_id($post_ID);
+
+//     if ($parent_ID) {
+//       $parent = get_post($parent_ID);
+//       echo $parent->post_title;
+//     }
+//     else {
+//       echo "<i>Kein Hersteller angegeben</i>";
+//     }
+//   }
+// }
+// add_action('manage_vehicle_posts_custom_column', 'fahrzeug_custom_columns_content', 10, 2);
