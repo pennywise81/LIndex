@@ -17,7 +17,7 @@ function init_posttype_ququq() {
     'new_item' => 'Neue QUQUQ Box',
     'edit_item' => 'QUQUQ Box bearbeiten',
     'view_item' => 'QUQUQ Box ansehen',
-    'all_items' => 'Alle QUQUQ Boxen',
+    'all_items' => 'QUQUQ Boxen',
     'search_items' => 'QUQUQ Box suchen',
     'not_found' => 'Keine QUQUQ Box gefunden',
     'not_found_in_trash' => 'Keine QUQUQ Box im Papierkorb gefunden',

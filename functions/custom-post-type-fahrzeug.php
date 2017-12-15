@@ -17,7 +17,7 @@ function init_posttype_fahrzeug() {
     'new_item' => 'Neues Fahrzeug',
     'edit_item' => 'Fahrzeug bearbeiten',
     'view_item' => 'Fahrzeug ansehen',
-    'all_items' => 'Alle Fahrzeuge',
+    'all_items' => 'Fahrzeuge',
     'search_items' => 'Fahrzeug suchen',
     'not_found' => 'Kein Fahrzeug gefunden',
     'not_found_in_trash' => 'Kein Fahrzeug im Papierkorb gefunden'
