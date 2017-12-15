@@ -9,7 +9,7 @@
 <body>
   <header class="clearfix">
     <div class="container-maxwidth">
-      <a href="<?php home_url(); ?>" title="<?php bloginfo('name'); ?>">
+      <a href="<?php echo get_home_url(); ?>" title="<?php bloginfo('name'); ?>">
         <h2>
           <?php bloginfo('name'); ?>
         </h2>
