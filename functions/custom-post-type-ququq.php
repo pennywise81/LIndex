@@ -33,6 +33,7 @@ function init_posttype_ququq() {
     'labels' => $labels,
     'show_ui' => true,
     'menu_icon' => 'dashicons-admin-generic',
+    'menu_position' => 20,
     'supports' => array('title', 'thumbnail'),
 
     /*
@@ -49,16 +50,6 @@ function init_posttype_ququq() {
     Erlaubt das Hinzufügen einer 'Archiv'-Seite zum (Frontend-) Menü
     */
     'has_archive' => true,
-
-    /*
-    Darstellungsposition im Backend Menü
-
-    1: ganz oben
-    2: nach 'Dashboard'
-    3:
-    4: nach 'Beiträge'
-    */
-    'menu_position' => 2,
  );
 
   register_post_type('ququq', $args);

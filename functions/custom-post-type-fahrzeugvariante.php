@@ -29,7 +29,7 @@ function init_posttype_fahrzeugvariante() {
     'show_in_menu' => 'edit.php?post_type=vehicle',
     'menu_icon' => 'dashicons-admin-network',
     'register_meta_box_cb' => 'variante_metabox_fahrzeug',
-    'supports' => array('title')
+    'supports' => false
  );
 
   register_post_type('vehiclevariant', $args);
@@ -105,15 +105,11 @@ https://www.smashingmagazine.com/2013/12/modifying-admin-post-lists-in-wordpress
 Backend-Table erweitern: Spalte(n) hinzufügen/entfernen
 */
 function variante_custom_columns($columns) {
-  // Titel zwischenspeichern und entfernen
-  $title = $columns['title'];
+  // Titel entfernen
   unset($columns['title']);
 
   // Fahrzeug hinzufügen
   $columns['vehicle'] = 'Fahrzeug';
-
-  // Titel als 'Modell' wieder hinzufügen (nach 'Fahrzeug')
-  $columns['title'] = 'Modell';
 
   // Baujahr
   $columns['baujahr'] = 'Baujahr';
@@ -132,6 +128,9 @@ function variante_custom_columns($columns) {
 
   // QUQUQ Version
   $columns['ququq_version'] = 'QUQUQ Version';
+
+  // Titel als ''
+  $columns['title'] = '';
 
   // Datum entfernen
   unset($columns['date']);
@@ -181,3 +180,24 @@ function variante_custom_columns_content($column_name, $post_ID) {
   }
 }
 add_action('manage_vehiclevariant_posts_custom_column', 'variante_custom_columns_content', 10, 2);
+
+/*
+Style-Anpassungen für Fahrzeugvarianten-Übersicht
+*/
+function vehiclevariant_change_admin_styles() {
+  if ((isset($_GET['post_type']) && $_GET['post_type'] == 'vehiclevariant') || (isset($post_type) && $post_type == 'vehiclevariant')) {
+    echo '<style type="text/css">';
+
+    // Breite der Funktionen setzen
+    echo '.column-title { width:300px !important; overflow:hidden }';
+
+    // Funktionen immer einblenden
+    echo '.row-actions { position: static !important; }';
+
+    // '(kein Titel)' ausblenden
+    echo 'td.column-title strong { display: none !important; }';
+
+    echo '</style>';
+  }
+}
+add_action('admin_head', 'vehiclevariant_change_admin_styles');

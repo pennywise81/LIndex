@@ -61,9 +61,42 @@ add_action('init', 'init_posttype_hersteller');
 Backend-Table erweitern: Spalte(n) hinzufügen/entfernen
 */
 function hersteller_custom_columns($columns) {
+  // Titel zwischenspeichern und entfernen
+  $title = $columns['title'];
+  unset($columns['title']);
+
   // Datum entfernen
   unset($columns['date']);
+
+  // Logo
+  $columns['logo'] = 'Logo';
+
+  // Titel als 'Name'
+  $columns['title'] = 'Name';
 
   return $columns;
 }
 add_filter('manage_manufacturer_posts_columns', 'hersteller_custom_columns');
+
+/*
+Backend-Table erweitern: Spalte(n) befüllen
+*/
+function hersteller_custom_columns_content($column_name, $post_ID) {
+  if ($column_name == 'logo') {
+    $logo = get_the_post_thumbnail($post_ID, array(50, 50));
+    echo $logo;
+  }
+}
+add_action('manage_manufacturer_posts_custom_column', 'hersteller_custom_columns_content', 10, 2);
+
+/*
+Spaltenbreite Logo setzen
+*/
+function hersteller_custom_columns_width() {
+  if ((isset($_GET['post_type']) && $_GET['post_type'] == 'manufacturer') || (isset($post_type) && $post_type == 'manufacturer')) {
+    echo '<style type="text/css">';
+    echo '.column-logo { text-align: center; width:80px !important; overflow:hidden }';
+    echo '</style>';
+  }
+}
+add_action('admin_head', 'hersteller_custom_columns_width');

@@ -27,7 +27,7 @@ function init_posttype_fahrzeug() {
     'labels' => $labels,
     'show_ui' => true,
     'menu_icon' => 'dashicons-admin-network',
-    'menu_position' => 5,
+    'menu_position' => 21,
     'register_meta_box_cb' => 'fahrzeug_metabox_hersteller',
     'supports' => array('title')
  );
@@ -118,3 +118,15 @@ function fahrzeug_custom_columns_content($column_name, $post_ID) {
   }
 }
 add_action('manage_vehicle_posts_custom_column', 'fahrzeug_custom_columns_content', 10, 2);
+
+/*
+Spaltenbreite Hersteller setzen
+*/
+function vehicle_custom_columns_width() {
+  if ((isset($_GET['post_type']) && $_GET['post_type'] == 'vehicle') || (isset($post_type) && $post_type == 'vehicle')) {
+    echo '<style type="text/css">';
+    echo '.column-manufacturer_name { width:100px !important; overflow:hidden }';
+    echo '</style>';
+  }
+}
+add_action('admin_head', 'vehicle_custom_columns_width');
