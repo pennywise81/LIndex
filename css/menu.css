@@ -1,0 +1,138 @@
+.menu-wrapper {
+  margin: 0 -1rem;
+  padding-top: 3rem;
+  position: relative;
+}
+
+.menu-wrapper.closed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s;
+}
+
+.menu-wrapper.open {
+  max-height: 999px;
+  overflow: auto;
+  transition: max-height .3s;
+}
+
+.menu-wrapper .menu-toggle {
+  border: none;
+  padding: 0;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: auto;
+}
+
+.menu-wrapper > ul::before,
+.menu-wrapper > ul::after {
+  content: ' ';
+  display: table;
+}
+
+.menu-wrapper > ul::after {
+  clear: both;
+}
+
+.menu-wrapper li {
+  display: block;
+}
+
+.menu-wrapper a {
+  display: inline-block;
+  text-decoration: none;
+  padding: .5rem 1rem;
+  width: 100%;
+}
+
+.menu-wrapper li li a {
+  padding-left: 2rem;
+}
+
+.menu-wrapper li li li a {
+  padding-left: 3rem;
+}
+
+.menu-wrapper li li li li a {
+  padding-left: 4rem;
+}
+
+/*
+At this width the menu will toggle
+*/
+@media screen and (min-width: 450px) {
+  .menu-wrapper .menu-toggle {
+    display: none;
+  }
+
+  .menu-wrapper.open,
+  .menu-wrapper.closed,
+  .menu-wrapper {
+    max-height: none;
+    overflow: visible;
+    padding-top: 0;
+  }
+
+  .menu-wrapper > ul {
+    margin-right: 2.5rem;
+    padding: 0 .75rem;
+    text-align: right;
+  }
+
+  .menu-wrapper > ul * {
+    text-align: left;
+  }
+
+  .menu-wrapper > ul > li {
+    display: inline-block;
+    position: relative;
+  }
+
+  .menu-wrapper ul.sub-menu {
+    opacity: 0;
+    width: 200px;
+    position: absolute;
+    transition: opacity .3s 0s, visibility 0s .3s;
+    visibility: hidden;
+    z-index: 100;
+  }
+
+  .menu-wrapper li:hover ul.sub-menu {
+    opacity: 1;
+    transition-delay: 0s, 0s;
+    visibility: visible;
+  }
+
+  .menu-wrapper ul.sub-menu li {
+    background: transparent;
+  }
+
+  .menu-wrapper > ul > li > a {
+    border-bottom: none;
+  }
+
+  .menu-wrapper a {
+    padding: .5rem .25rem;
+  }
+
+  .menu-wrapper a br {
+    content: ' ';
+  }
+
+  .menu-wrapper a br:after {
+    content: ' ';
+  }
+
+  .menu-wrapper li li a {
+    padding-left: .5rem;
+  }
+
+  .menu-wrapper li li li a {
+    padding-left: 1.5rem;
+  }
+
+  .menu-wrapper li li li li a {
+    padding-left: 2.5rem;
+  }
+}
