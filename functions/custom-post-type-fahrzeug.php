@@ -27,7 +27,7 @@ function init_posttype_fahrzeug() {
     'labels' => $labels,
     'show_ui' => true,
     'menu_icon' => 'dashicons-admin-network',
-    'menu_position' => 6,
+    'menu_position' => 5,
     'register_meta_box_cb' => 'fahrzeug_metabox_hersteller',
     'supports' => array('title')
  );
