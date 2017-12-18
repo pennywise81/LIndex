@@ -1,20 +1,20 @@
 addMenuButton = function() {
   return jQuery('<button/>', {
-    class: 'hamburger hamburger--slider menu-toggle',
+    class: 'hamburger hamburger--slider page__menu__toggle',
     type: 'button',
     html: '<span class="hamburger-box"><span class="hamburger-inner"></span></span>'
-  }).appendTo('.menu-wrapper');
+  }).appendTo('.page__menu__wrapper');
 }
 
 $(document).ready(function() {
   var menuButton = addMenuButton(),
-    menuWrapper = $('.menu-wrapper');
+    menuWrapper = $('.page__menu__wrapper');
 
-  menuWrapper.on('touchend click', '.menu-toggle', function(e) {
+  menuWrapper.on('touchend click', '.page__menu__toggle', function(e) {
     e.stopPropagation();
     e.preventDefault();
 
     menuButton.toggleClass('is-active');
-    menuWrapper.toggleClass('open closed');
+    menuWrapper.toggleClass('page__menu__wrapper--open page__menu__wrapper--closed');
   });
 });

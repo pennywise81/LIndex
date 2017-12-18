@@ -7,10 +7,10 @@ a
 
 .background-alpha,
 header,
-.menu-wrapper,
-.menu-wrapper > ul,
-.menu-wrapper li,
-.menu-wrapper ul.sub-menu,
+.page__menu__wrapper,
+.page__menu__wrapper > ul,
+.page__menu__wrapper li,
+.page__menu__wrapper ul.sub-menu,
 footer
 {
   background-color: #444;
@@ -19,7 +19,7 @@ footer
 .foreground-beta,
 header,
 header a,
-.menu-wrapper a
+.page__menu__wrapper a
 {
   color: #f1f1f1;
 }
@@ -34,7 +34,7 @@ body,
 }
 
 .border-bottom-beta,
-.menu-wrapper a
+.page__menu__wrapper a
 {
   border-bottom: 1px solid #f1f1f1;
 }
