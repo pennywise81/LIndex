@@ -1,15 +1,5 @@
 /*
 Basic layout
-
-Visual representation of the markup:
-
-<body>
-  <header class="clearfix">
-  <main class="container-maxwidth" />
-    <section class="content" />
-    <aside class="sidebar" />
-  <footer />
-
 */
 body {
   display: flex;
@@ -17,86 +7,86 @@ body {
   min-height: 100vh;
 }
 
-header a {
+.page__header a {
   text-decoration: none;
 }
 
-header h2 {
+.page__header h2 {
   float: left;
   margin: .5rem .5rem 0 -.5rem;
 }
 
-header p {
+.page__header p {
   padding-top: .75rem;
 }
 
-main {
+.page__main {
   display: flex; /* init as flex element for child elements */
-  flex-direction: column; /* order child elements in columns (section.content, aside.sidebar) */
+  flex-direction: column; /* order child elements in columns (section.content, .page__sidebar) */
   flex-grow: 1; /* take all of the available height (height of body - height of header - height of footer) */
   width: 100%;
 }
 
-section.content {
+.page__content {
   flex-grow: 1; /* take all the available height, when the sidebar is below the content */
 }
 
-aside.sidebar {
+.page__sidebar {
   display: flex; /* init as a flex element */
   flex-direction: column;
   padding-bottom: .5rem;
 }
 
-aside.sidebar .widget {
+.page__sidebar .widget {
   margin: .25rem 0;
 }
 
-aside.sidebar .widget:first-child {
+.page__sidebar .widget:first-child {
   margin-top: 0;
 }
 
-aside.sidebar .widget:last-child {
+.page__sidebar .widget:last-child {
   margin-bottom: 0;
 }
 
 @media screen and (min-width: 400px) and (max-width: 649px) {
-  aside.sidebar {
+  .page__sidebar {
     flex-direction: row;
   }
 
-  aside.sidebar .widget {
+  .page__sidebar .widget {
     flex-grow: 1; /* they will grow when more space is available */
     flex-basis: 33.333%;
     margin: 0 .5rem 0 0;
   }
 
-  aside.sidebar .widget:last-child {
+  .page__sidebar .widget:last-child {
     margin-right: 0;
   }
 }
 
 @media screen and (min-width: 650px) {
-  main {
-    flex-direction: row; /* order child elements in rows (section.content, aside.sidebar) */
+  .page__main {
+    flex-direction: row; /* order child elements in rows (section.content, .page__sidebar) */
   }
 
-  aside.sidebar {
+  .page__sidebar {
     flex-direction: column;
     padding-left: .5rem;
     width: 9rem;
   }
 
-  aside.sidebar.left {
+  .page__sidebar.left {
     order: -1;
     padding-left: 0;
     padding-right: .5rem;
   }
 
-  aside.sidebar .widget {
+  .page__sidebar .widget {
     margin: .25rem 0;
   }
 }
 
-footer {
+.page__footer {
   min-height: 10vh;
 }

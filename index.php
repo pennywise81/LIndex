@@ -1,7 +1,7 @@
 <!-- index.php -->
 <?php get_header(); ?>
 
-<section class="content">
+<section class="page__content">
 <?php
 
 if (have_posts()) {

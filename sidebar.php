@@ -29,7 +29,7 @@ if ($showSidebar == false) {
 
 ?>
 
-<aside class="sidebar <?php echo $sidebarClass; ?>">
+<aside class="page__sidebar <?php echo $sidebarClass; ?>">
 
 <?php
 
