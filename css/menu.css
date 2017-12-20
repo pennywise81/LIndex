@@ -25,6 +25,10 @@
   width: auto;
 }
 
+.page__menu {
+  clear: both;
+}
+
 .page__menu__wrapper > ul::before,
 .page__menu__wrapper > ul::after {
   content: ' ';
