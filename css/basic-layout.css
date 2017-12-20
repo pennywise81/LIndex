@@ -7,17 +7,21 @@ body {
   min-height: 100vh;
 }
 
-.page__header a {
-  text-decoration: none;
-}
-
-.page__header h2 {
+.page__header__homelink {
   float: left;
-  margin: .5rem .5rem 0 -.5rem;
 }
 
-.page__header p {
-  padding-top: .75rem;
+.page__header__logo {
+  height: auto;
+  margin-top: .5rem;
+  max-width: 75px;
+}
+
+.page__header__sitetitle {}
+
+.page__header__siteclaim {
+  float: left;
+  margin: .5rem;
 }
 
 .page__main {
