@@ -1,4 +1,4 @@
-[class^="container"] {
+[class*="container"] {
   margin: 0 auto;
 }
 
