@@ -1,3 +1,44 @@
 /*
 Theme Name: Q-Web-2018
 */
+
+/*
+@TODO: Das muss noch in den Customizer;
+*/
+body,
+header,
+.page__menu__wrapper > ul,
+.page__menu__wrapper li,
+header a,
+.page__menu__wrapper,
+.page__menu__wrapper a {
+  background-color: #fff;
+  color: #4a280d;
+}
+
+.page__header__homelink {
+  float: right;
+}
+
+.page__header__logo {
+  margin-top: 32px;
+  max-width: 194px;
+}
+
+.page__header__siteclaim {
+  display: none;
+}
+
+.page__menu__wrapper > ul {
+  text-align: left;
+}
+
+.page__footer {
+  background-color: transparent;
+}
+
+.page__footer > .container {
+  background-color: #4a280d;
+  color: #fff;
+  min-height: inherit;
+}

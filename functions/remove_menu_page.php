@@ -20,7 +20,7 @@ function remove_menus() {
   // remove_menu_page('edit.php');
 
   // Media
-  remove_menu_page('upload.php');
+  // remove_menu_page('upload.php');
 
   // Pages
   // remove_menu_page('edit.php?post_type=page');
