@@ -20,6 +20,7 @@
           ?>
 
           <img src="<?php echo $image[0]; ?>" alt="<?php bloginfo('name'); ?> Logo" class="page__header__logo">
+          <span><?php bloginfo('name'); ?></span>
 
           <?php
         }

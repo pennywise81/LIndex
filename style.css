@@ -12,21 +12,53 @@ header,
 header a,
 .page__menu__wrapper,
 .page__menu__wrapper a {
-  background-color: #fff;
+  background-color: transparent;
+}
+
+body,
+header,
+.page__menu__wrapper > ul,
+.page__menu__wrapper li,
+header a,
+.page__menu__wrapper,
+.page__menu__wrapper a {
   color: #4a280d;
 }
 
-.page__header__homelink {
-  float: right;
-}
+@media screen and (min-width: 650px) {
+  header > .container {
+    position: relative;
+  }
 
-.page__header__logo {
-  margin-top: 32px;
-  max-width: 194px;
-}
+  .page__header__homelink {
+    position: absolute;
+    right: 25px;
+    top: -55px;
+    z-index: 1;
+  }
 
-.page__header__siteclaim {
-  display: none;
+  .page__header__homelink span {
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 64px;
+    width: 100%;
+  }
+
+  .page__header__logo {
+    max-width: 194px;
+  }
+
+  .page__header__siteclaim {
+    display: none;
+  }
+
+  .page__menu {
+    margin-top: 74px;
+  }
+
+  .page__menu__wrapper {}
 }
 
 .page__menu__wrapper > ul {
