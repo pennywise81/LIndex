@@ -96,6 +96,17 @@ function lindex_enqueue_scripts_and_styles() {
   );
 
   /*
+  Fonts
+  */
+  wp_enqueue_style(
+    'webfonts',
+    get_template_directory_uri() . '/css/fonts.css',
+    array(),
+    '1.0.0',
+    'all'
+  );
+
+  /*
   All the other (custom) styles
   */
   wp_enqueue_style(
