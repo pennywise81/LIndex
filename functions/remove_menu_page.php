@@ -11,10 +11,10 @@ function remove_menus() {
   Standard Menüs
   */
   // Dashboard
-  remove_menu_page('index.php');
+  // remove_menu_page('index.php');
 
   // Jetpack*
-  remove_menu_page('jetpack');
+  // remove_menu_page('jetpack');
 
   // Posts
   // remove_menu_page('edit.php');
@@ -26,34 +26,34 @@ function remove_menus() {
   // remove_menu_page('edit.php?post_type=page');
 
   // Comments
-  remove_menu_page('edit-comments.php');
+  // remove_menu_page('edit-comments.php');
 
   // Appearance
   // remove_menu_page('themes.php');
 
   // Plugins
-  remove_menu_page('plugins.php');
+  // remove_menu_page('plugins.php');
 
   // Users
-  remove_menu_page('users.php');
+  // remove_menu_page('users.php');
 
   // Tools
-  remove_menu_page('tools.php');
+  // remove_menu_page('tools.php');
 
   // Settings
-  remove_menu_page('options-general.php');
+  // remove_menu_page('options-general.php');
 
   /*
   Plugin-Menüs, CPTs
   */
   // Advanced Custom Fields
-  remove_menu_page('edit.php?post_type=acf');
+  // remove_menu_page('edit.php?post_type=acf');
 
   // 'Neu Erstellen' in Fahrzeuge
-  remove_submenu_page('edit.php?post_type=vehicle', 'post-new.php?post_type=vehicle');
+  // remove_submenu_page('edit.php?post_type=vehicle', 'post-new.php?post_type=vehicle');
 
   // 'Neu Erstellen' in QUQUQ
-  remove_submenu_page('edit.php?post_type=ququq', 'post-new.php?post_type=ququq');
+  // remove_submenu_page('edit.php?post_type=ququq', 'post-new.php?post_type=ququq');
 }
 add_action('admin_init', 'remove_menus');
 
