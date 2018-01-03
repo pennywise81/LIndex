@@ -6,8 +6,10 @@
   max-width: 1280px;
 }
 
+.container--padded {
+  padding: 0 1rem;
+}
+
 @media screen and (max-width: 1320px) {
-  .container--maxwidth {
-    padding: 0 .5rem;
-  }
+  .container--maxwidth {}
 }

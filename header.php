@@ -8,7 +8,7 @@
 </head>
 <body <?php body_class('page'); ?>>
   <header class="page__header clearfix">
-    <div class="container container--maxwidth">
+    <div class="container container--maxwidth container--padded">
       <a href="<?php echo get_home_url(); ?>" title="<?php bloginfo('name'); ?>" class="page__header__homelink">
       <?php
 
@@ -67,6 +67,6 @@ else {
     </div>
   </header>
 
-  <main class="page__main container container--maxwidth">
+  <main class="page__main container container--maxwidth container--padded">
 
 <!-- /header.php -->
