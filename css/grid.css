@@ -10,6 +10,10 @@
   padding: 0 1rem;
 }
 
+.container--padded .breakout {
+  margin: 0 -1rem;
+}
+
 @media screen and (max-width: 1320px) {
   .container--maxwidth {}
 }
