@@ -25,33 +25,37 @@ header a,
   color: #4a280d;
 }
 
+.page__header__siteclaim {
+  display: none;
+}
+
 @media screen and (min-width: 650px) {
   header > .container {
     position: relative;
   }
 
   .page__header__homelink {
+    margin-top: -3.28%;
+    max-width: 221px;
     position: absolute;
-    right: 25px;
-    top: -55px;
+    right: 1.5rem;
+    width: 14.85%;
     z-index: 1;
   }
 
   .page__header__homelink span {
     color: #fff;
+    font-size: .9em;
     position: absolute;
     text-align: center;
-    text-decoration: none;
-    top: 64px;
+    top: 26%;
     width: 100%;
   }
 
   .page__header__logo {
-    max-width: 194px;
-  }
-
-  .page__header__siteclaim {
-    display: none;
+    margin: 0;
+    max-width: none;
+    width: 100%;
   }
 
   .page__menu {
@@ -67,10 +71,14 @@ header a,
 
 .page__footer {
   background-color: transparent;
+  min-height: 255px;
+  padding: 1rem;
+  width: 100%;
 }
 
-.page__footer > .container {
+.page__footer > .inner {
   background-color: #4a280d;
   color: #fff;
   min-height: inherit;
+  padding: 1rem;
 }
