@@ -14,6 +14,6 @@ body {
   font-family:"Unit Offc W01 Regular";
 }
 
-h1, h2, h3, h4, h5, h6, b, strong, .current-menu-item, .current-menu-parent {
+h1, h2, h3, h4, h5, h6, b, strong {
   font-family:"Unit Offc W01 Bold";
 }

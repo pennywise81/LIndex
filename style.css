@@ -25,8 +25,51 @@ header a,
   color: #4a280d;
 }
 
+.page__header__logo {
+  float: left;
+  margin-top: 1rem;
+  max-width: 50px;
+}
+
+.page__header__homelink span {
+  float: left;
+  margin: 1rem;
+  text-decoration: none;
+}
+
 .page__header__siteclaim {
   display: none;
+}
+
+.page__menu {
+  position: relative;
+  top: -2rem;
+}
+
+.page__menu__wrapper {
+  padding-top: 2rem;
+}
+
+.page__menu__wrapper .page__menu__toggle {
+  top: .2rem;
+}
+
+.hamburger-inner,
+.hamburger-inner:after,
+.hamburger-inner:before {
+  background-color: #4a280d;
+}
+
+.page__menu__wrapper li {
+  font-family:"Unit Offc W01 Regular";
+}
+
+.page__menu__wrapper li.current-menu-item, .page__menu__wrapper li.current-menu-parent {
+  font-family:"Unit Offc W01 Bold";
+}
+
+.page__menu__wrapper ul.sub-menu {
+  background-color: #fff;
 }
 
 @media screen and (min-width: 650px) {
@@ -60,9 +103,8 @@ header a,
 
   .page__menu {
     margin-top: 74px;
+    position: static;
   }
-
-  .page__menu__wrapper {}
 }
 
 .page__menu__wrapper > ul {
