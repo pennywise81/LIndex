@@ -48,7 +48,8 @@ if (has_nav_menu('header-menu')) {
   wp_nav_menu(
     array(
       'theme_location' => 'header-menu',
-      'container_class' => 'page__menu__wrapper page__menu__wrapper--closed'
+      'container_class' => 'page__menu__wrapper page__menu__wrapper--closed',
+      'walker' => new Ququq_Navigation_Walker(),
     )
   );
 }

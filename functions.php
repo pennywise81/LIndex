@@ -18,3 +18,5 @@ require_once 'functions/custom-post-type-hersteller.php';
 require_once 'functions/custom-post-type-fahrzeug.php';
 require_once 'functions/custom-post-type-fahrzeugvariante.php';
 require_once 'functions/custom-post-type-ququq.php';
+
+require_once 'functions/Ququq_Navigation_Walker.class.php';
