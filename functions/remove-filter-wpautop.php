@@ -9,4 +9,4 @@ remove_filter('the_content', 'wpautop');
 remove_filter('the_excerpt', 'wpautop');
 
 // remove the autop from widget content
-remove_filter('widget_text_content', 'wpautop');
+// remove_filter('widget_text_content', 'wpautop');
