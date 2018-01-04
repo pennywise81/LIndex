@@ -1,11 +1,16 @@
 .page__footer {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: flex-start;
   min-height: 10vh;
 }
 
 .page__footer .widget {
   padding: 1rem;
+}
+
+.page__footer__copyright {
+  padding: 1rem;
+  width: 100%;
 }
