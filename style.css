@@ -79,6 +79,19 @@ header a,
 .page__footer > .inner {
   background-color: #4a280d;
   color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   min-height: inherit;
-  padding: 1rem;
+  padding: .5rem;
+  width: 100%;
+}
+
+.page__footer .widget {
+  padding: .5rem;
+}
+
+.page__footer .widget p {
+  margin: 0;
 }
