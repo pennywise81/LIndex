@@ -7,6 +7,10 @@
       dynamic_sidebar('widgets-footer');
     }
 
+    if (get_theme_mod('lindex_copyright') !== false) {
+      echo '<div class="page__footer__copyright">' . get_theme_mod('lindex_copyright') . '</div>';
+    }
+
     ?>
   </footer>
   <?php wp_footer(); ?>
