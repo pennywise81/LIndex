@@ -71,9 +71,14 @@ header a,
 
 .page__footer {
   background-color: transparent;
-  min-height: 255px;
+  font-size: .7rem;
   padding: 1rem;
   width: 100%;
+}
+
+.page__footer a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .page__footer > .inner {
@@ -93,9 +98,10 @@ header a,
 }
 
 .page__footer .widget p {
+  line-height: 1rem;
   margin: 0;
 }
 
 .page__footer__copyright {
-  padding: .5rem;
+  padding: 0 .5rem .5rem .5rem;
 }
