@@ -52,6 +52,18 @@ function widgets_init() {
       )
     );
   }
+
+  // Footer Widgets
+  register_sidebar(
+    array(
+    'name' => __('Footer'),
+      'id' => 'widgets-footer',
+      'before_widget' => '<div class="widget">',
+      'after_widget' => '</div>',
+      'before_title' => '<h5>',
+      'after_title' => '</h5>',
+    )
+  );
 }
 
 add_action('widgets_init', 'widgets_init');

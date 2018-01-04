@@ -96,6 +96,17 @@ function lindex_enqueue_scripts_and_styles() {
   );
 
   /*
+  Footer styling
+  */
+  wp_enqueue_style(
+    'lindex-footer',
+    get_template_directory_uri() . '/css/footer.css',
+    array(),
+    '1.0.0',
+    'all'
+  );
+
+  /*
   All the other (custom) styles
   */
   wp_enqueue_style(

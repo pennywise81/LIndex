@@ -19,7 +19,8 @@ footer
 .foreground-beta,
 header,
 header a,
-.page__menu__wrapper a
+.page__menu__wrapper a,
+footer
 {
   color: #f1f1f1;
 }
