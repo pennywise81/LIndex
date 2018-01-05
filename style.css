@@ -72,6 +72,46 @@ header a,
   background-color: #fff;
 }
 
+.page__menu__wrapper > ul > li.page__menu__item--has-fullsize-submenu {
+  position: static;
+}
+
+.page__menu__wrapper .page__menu__submenu--fullsize {
+  background: #fff;
+  left: 0;
+  /*opacity: 0;*/
+  opacity: 1;
+  padding: 1rem;
+  position: absolute;
+  transition: opacity .3s 0s, visibility 0s .3s;
+  /*visibility: hidden;*/
+  visibility: visible;
+  width: 100%;
+  z-index: 100;
+}
+
+.page__menu__wrapper li:hover .page__menu__submenu--fullsize {
+  opacity: 1;
+  transition-delay: 0s, 0s;
+  visibility: visible;
+}
+
+/* normale menu-Link Styles überschreiben */
+.page__menu__wrapper .manufacturer__icon-link {
+  border: none;
+  width: 75px;
+}
+
+.page__menu__wrapper .manufacturers {
+  display: flex;
+}
+
+.manufacturer__icon-link {}
+
+.manufacturer__icon-link img {
+  vertical-align: middle;
+}
+
 @media screen and (min-width: 650px) {
   header > .container {
     position: relative;
