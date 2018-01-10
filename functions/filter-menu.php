@@ -35,7 +35,8 @@ function filter_menu($nav, $args) {
 
   foreach ($hersteller as $h) {
     $thumb = get_the_post_thumbnail($h->ID);
-    $additionalMenuMarkup .= '<a href="#" class="manufacturer__icon-link">' . $thumb . '</a>';
+    $additionalMenuMarkup .= '<a href="' . get_post_permalink($h->ID) .
+      '" class="manufacturer__icon-link">' . $thumb . '</a>';
   }
 
   // @TODO: Alle Boxen raussuchen und darstellen
