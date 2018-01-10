@@ -79,13 +79,11 @@ header a,
 .page__menu__wrapper .page__menu__submenu--fullsize {
   background: #fff;
   left: 0;
-  /*opacity: 0;*/
-  opacity: 1;
+  opacity: 0;
   padding: 1rem;
   position: absolute;
   transition: opacity .3s 0s, visibility 0s .3s;
-  /*visibility: hidden;*/
-  visibility: visible;
+  visibility: hidden;
   width: 100%;
   z-index: 100;
 }
@@ -106,9 +104,21 @@ header a,
   display: flex;
 }
 
-.manufacturer__icon-link {}
-
 .manufacturer__icon-link img {
+  vertical-align: middle;
+}
+
+/* normale menu-Link Styles überschreiben */
+.page__menu__wrapper .ququq-box__icon-link {
+  border: none;
+  width: 400px;
+}
+
+.page__menu__wrapper .ququq-boxes {
+  display: flex;
+}
+
+.ququq-box__icon-link img {
   vertical-align: middle;
 }
 

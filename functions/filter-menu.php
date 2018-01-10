@@ -39,9 +39,24 @@ function filter_menu($nav, $args) {
       '" class="manufacturer__icon-link">' . $thumb . '</a>';
   }
 
-  // @TODO: Alle Boxen raussuchen und darstellen
-
   $additionalMenuMarkup .= '</div>';
+  $additionalMenuMarkup .= '<div class="ququq-boxes">';
+
+  // Alle Boxen raussuchen
+  $boxen = get_posts(array(
+    'post_type' => 'ququq',
+    'post_status' => 'publish',
+    'orderby' => 'title',
+    'order' => 'ASC',
+    'posts_per_page' => -1
+  ));
+
+  foreach ($boxen as $b) {
+    $thumb = get_the_post_thumbnail($b->ID);
+    $additionalMenuMarkup .= '<a href="' . get_post_permalink($b->ID) .
+      '" class="ququq-box__icon-link">' . $thumb . '</a>';
+  }
+
   $additionalMenuMarkup .= '</div>';
 
   // neues Submenu-Markup in DOM-Objekt umwandeln
