@@ -130,3 +130,45 @@ function vehicle_custom_columns_width() {
   }
 }
 add_action('admin_head', 'vehicle_custom_columns_width');
+
+// Sortierung in der Listview nach "Hersteller" ermöglichen
+function vehicle_manage_sortable_columns($columns) {
+   $columns['manufacturer_name'] = 'manufacturer_name';
+   return $columns;
+}
+add_filter('manage_edit-vehicle_sortable_columns', 'vehicle_manage_sortable_columns');
+
+// Query für Sortieren überarbeiten
+function vehicle_posts_clauses($pieces, $query) {
+  global $wpdb;
+
+  if ($query->is_main_query() && ($orderby = $query->get('orderby'))) {
+    $order = strtoupper($query->get('order'));
+
+    if (! in_array($order, array('ASC', 'DESC'))) $order = 'ASC';
+
+    switch($orderby) {
+      case 'manufacturer_name':
+        $pieces['join'] .= " LEFT JOIN $wpdb->posts pp ON pp.ID = {$wpdb->posts}.post_parent";
+        $pieces['orderby'] = "pp.post_title $order, {$wpdb->posts}.post_title $order, " . $pieces['orderby'];
+      break;
+    }
+  }
+
+  return $pieces;
+}
+add_filter('posts_clauses', 'vehicle_posts_clauses', 1, 2);
+
+// Standardsortierung setzen
+function vehicle_default_order($query) {
+  if ($query->get('post_type') == 'vehicle') {
+    if ($query->get('orderby') == '') {
+      $query->set('orderby', 'manufacturer_name');
+    }
+
+    if ($query->get('order') == '') {
+      $query->set('order', 'ASC');
+    }
+  }
+}
+add_action('pre_get_posts', 'vehicle_default_order', 99);
