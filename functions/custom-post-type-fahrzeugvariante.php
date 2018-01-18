@@ -76,15 +76,15 @@ function variante_metabox_fahrzeug_cb($post) {
   if (!empty($parents)) {
 
     // Fahrzeugvarianten ermitteln
-    foreach ($parents as &$parent) {
+    for ($i = 0; $i < count($parents); $i++) {
       // Fahrzeuge ohne Hersteller "ausfiltern"
-      if ($parent->post_parent == '') continue;
+      if ($parents[$i]->post_parent == '') continue;
 
       // Herstellername holen
-      $parent_post = get_post($parent->post_parent);
+      $parent_post = get_post($parents[$i]->post_parent);
       $hersteller = $parent_post->post_title;
 
-      $parent->complete_modell = $hersteller . ' ' . $parent->post_title;
+      $parents[$i]->complete_modell = $hersteller . ' ' . $parents[$i]->post_title;
     }
 
     // Fahrzeuge nach Namen sortieren
@@ -108,6 +108,10 @@ function variante_metabox_fahrzeug_cb($post) {
         selected($parent->ID, $post->post_parent, false),
         esc_html($parent->complete_modell)
       );
+
+      // echo "<pre>";
+      // print_r($parent->ID .' ' . $post->post_parent .' ' . $parent->complete_modell);
+      // echo "</pre>";
     }
     echo "</select>";
   }
