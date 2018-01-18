@@ -67,17 +67,16 @@ function variante_metabox_fahrzeug_cb($post) {
   $parents = get_posts(
     array(
       'post_type' => 'vehicle',
-      'orderby' => 'title',
+      'orderby' => 'post_parent, title',
       'order' => 'ASC',
       'numberposts' => -1
     )
   );
 
   if (!empty($parents)) {
-    echo '<select name="parent_id" class="widefat">';
-    echo '<option value="">Fahrzeug auswählen</option>';
 
-    foreach ($parents as $parent) {
+    // Fahrzeugvarianten ermitteln
+    foreach ($parents as &$parent) {
       // Fahrzeuge ohne Hersteller "ausfiltern"
       if ($parent->post_parent == '') continue;
 
@@ -85,14 +84,31 @@ function variante_metabox_fahrzeug_cb($post) {
       $parent_post = get_post($parent->post_parent);
       $hersteller = $parent_post->post_title;
 
+      $parent->complete_modell = $hersteller . ' ' . $parent->post_title;
+    }
+
+    // Fahrzeuge nach Namen sortieren
+    function sortByName($a, $b)
+    {
+        $a = $a->complete_modell;
+        $b = $b->complete_modell;
+
+        if ($a == $b) return 0;
+        return ($a < $b) ? -1 : 1;
+    }
+    usort($parents, 'sortByName');
+
+    // Dropdown darstellen
+    echo '<select name="parent_id" class="widefat">';
+    echo '<option value="">Fahrzeug auswählen</option>';
+    foreach ($parents as $parent) {
       printf(
         '<option value="%s"%s>%s</option>',
         esc_attr($parent->ID),
         selected($parent->ID, $post->post_parent, false),
-        esc_html($hersteller . ' ' . $parent->post_title)
+        esc_html($parent->complete_modell)
       );
     }
-
     echo "</select>";
   }
 }
@@ -120,11 +136,11 @@ function variante_custom_columns($columns) {
   // Radstand
   $columns['radstand'] = 'Radstand';
 
-  // 2. Sitzreihe
-  $columns['2_sitzreihe'] = '2. Sitzreihe';
-
   // 3. Sitzreihe
   $columns['3_sitzreihe'] = '3. Sitzreihe';
+
+  // 2. Sitzreihe
+  $columns['2_sitzreihe'] = '2. Sitzreihe';
 
   // QUQUQ Version
   $columns['ququq_version'] = 'QUQUQ Version';
@@ -201,3 +217,46 @@ function vehiclevariant_change_admin_styles() {
   }
 }
 add_action('admin_head', 'vehiclevariant_change_admin_styles');
+
+// Sortierung in der Listview nach "Fahrzeug" ermöglichen
+function vehiclevariant_manage_sortable_columns($columns) {
+   $columns['vehicle'] = 'vehicle';
+   return $columns;
+}
+add_filter('manage_edit-vehiclevariant_sortable_columns', 'vehiclevariant_manage_sortable_columns');
+
+// Query für Sortieren überarbeiten
+function vehiclevariant_posts_clauses($pieces, $query) {
+  global $wpdb;
+
+  if ($query->is_main_query() && ($orderby = $query->get('orderby'))) {
+    $order = strtoupper($query->get('order'));
+
+    if (! in_array($order, array('ASC', 'DESC'))) $order = 'ASC';
+
+    switch($orderby) {
+      case 'vehicle':
+        $pieces['join'] .= " LEFT JOIN $wpdb->posts pp ON pp.ID = {$wpdb->posts}.post_parent";
+        $pieces['join'] .= " LEFT JOIN $wpdb->posts pp2 ON pp2.ID = pp.post_parent";
+        $pieces['orderby'] = "pp2.post_title $order, pp.post_title $order, " . $pieces['orderby'];
+      break;
+    }
+  }
+
+  return $pieces;
+}
+add_filter('posts_clauses', 'vehiclevariant_posts_clauses', 1, 2);
+
+// Standardsortierung setzen
+function vehiclevariant_default_order($query) {
+  if ($query->get('post_type') == 'vehiclevariant') {
+    if ($query->get('orderby') == '') {
+      $query->set('orderby', 'vehicle');
+    }
+
+    if ($query->get('order') == '') {
+      $query->set('order', 'ASC');
+    }
+  }
+}
+add_action('pre_get_posts', 'vehiclevariant_default_order', 99);
