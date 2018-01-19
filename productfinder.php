@@ -23,20 +23,6 @@ $fahrzeuge_to_hersteller = get_posts(
   )
 );
 
-/*
-echo "<pre>";
-print_r($hersteller);
-echo "</pre>";
-
-echo "<pre>";
-print_r($hersteller_selected);
-echo "</pre>";
-
-echo "<pre>";
-print_r($fahrzeuge_to_hersteller);
-echo "</pre>";
-*/
-
 ?>
 
 <div class="searchform">
