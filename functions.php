@@ -21,3 +21,5 @@ require_once 'functions/custom-post-type-ququq.php';
 require_once 'functions/custom-post-type-ququqvariante.php';
 
 require_once 'functions/filter-menu.php';
+
+require_once 'functions/init_productfinder.php';
