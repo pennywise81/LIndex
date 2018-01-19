@@ -49,7 +49,7 @@ function init_posttype_ququq() {
     /*
     Erlaubt das Hinzufügen einer 'Archiv'-Seite zum (Frontend-) Menü
     */
-    'has_archive' => true,
+    'has_archive' => false,
  );
 
   register_post_type('ququq', $args);
