@@ -5,6 +5,9 @@
 
 $hersteller_id = get_the_ID();
 $fahrzeug_id = !empty($_REQUEST['fahrzeug_id']) ? $_REQUEST['fahrzeug_id'] : 0;
+$radstand = !empty($_REQUEST['radstand']) ? $_REQUEST['radstand'] : '';
+$sitzreihe3 = !empty($_REQUEST['3_sitzreihe']) ? $_REQUEST['3_sitzreihe'] : '';
+$sitzreihe2 = !empty($_REQUEST['2_sitzreihe']) ? $_REQUEST['2_sitzreihe'] : '';
 
 $hersteller = get_posts(
   array(
@@ -26,10 +29,6 @@ $fahrzeuge_to_hersteller = get_posts(
     'numberposts' => -1
   )
 );
-
-echo "<pre>";
-print_r($hersteller_id . ', ' . $fahrzeug_id);
-echo "</pre>";
 
 ?>
 
@@ -64,7 +63,8 @@ echo "</pre>";
   <?php
 
   if ($fahrzeug_id != 0) {
-    $varianten = get_posts(
+
+    $tmp = get_posts(
       array(
         'post_type' => 'vehiclevariant',
         'orderby' => 'title',
@@ -74,58 +74,30 @@ echo "</pre>";
         'numberposts' => -1
       )
     );
+    $varianten = array();
 
-    if (count($varianten) == 1) {
-      // wir sind schon da ...
-      $ququq_version = get_field('ququq_version', $varianten[0]->ID);
-      $ququq = get_post($ququq_version->post_parent);
-    }
-    else {
-      $choices = array(
-        'radstand',
-        '2_sitzreihe',
-        '3_sitzreihe',
-        // 'ququq_version'
-      );
+    $fields = array(
+      'radstand' => array(),
+      '3_sitzreihe' => array(),
+      '2_sitzreihe' => array()
+    );
 
-      $varianten_filtered = array();
-      foreach ($varianten as $v) {
-        echo "<pre>";
-        print_r('Variante-ID: ' . $v->ID);
-        echo "</pre>";
-        foreach ($choices as $c) {
-          $field = get_field_object($c, $v->ID);
-          echo "<pre>";
-          print_r($field['label'] . ': ' . $field['value']);
-          echo "</pre>";
-        }
-        echo "<br>";
-      }
+    foreach ($tmp as $t) {
+      $varianten[$t->ID] = array('id' => $t->ID);
 
-      /*
-      $values = array();
-      foreach ($varianten as $v) {
-        $tmp = get_field_objects($v->ID);
+      foreach ($fields as $f => $values) {
+        $field = get_field_object($f, $t->ID);
 
-        foreach ($tmp as $t) {
-          if (!in_array($t['name'], $choices)) continue;
-
-          if (array_key_exists($t['name'], $values)) {
-            if (!in_array($t['value'], $values[$t['name']])) {
-              $values[$t['name']][] = $t['value'];
-            }
-          }
-          else {
-            $values[$t['name']] = array($t['value']);
-          }
+        if ($field['value'] != '') {
+          $varianten[$t->ID][$field['name']] = $field['value'];
         }
       }
-      echo "<pre>";
-      print_r($values);
-      echo "</pre>";
-      */
-
     }
+
+    echo "<pre>";
+    print_r($varianten);
+    echo "</pre>";
+
   }
 
 
