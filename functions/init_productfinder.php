@@ -42,7 +42,7 @@ add_action("wp_ajax_nopriv_changedVehicle", "changedVehicle");
 function changedVehicle() {
   $fahrzeug_id = $_REQUEST["fahrzeugId"];
 
-  $varianten = get_posts(
+  $tmp = get_posts(
     array(
       'post_type' => 'vehiclevariant',
       'orderby' => 'title',
@@ -53,16 +53,15 @@ function changedVehicle() {
     )
   );
 
-  if (count($varianten) == 1) {
-    // z.B. Fiat Doblò I
-    $ququq_version = get_field('ququq_version', $varianten[0]->ID);
-    $ququq = get_post($ququq_version->post_parent);
-
-    echo json_encode($ququq);
-  }
-  else {
-    // z.B. Fiat Talento
-    echo json_encode($varianten);
+  if (count($tmp) == 1) {
+    // Bei nur einem Ergebnis wird sofort die Q-ID zurückgegeben
+    echo json_encode(array(array('id' => $tmp[0]->ID)));
+  } else {
+    $fields = array(
+      'radstand',
+      '3_sitzreihe',
+      '2_sitzreihe',
+    );
   }
 
   die();

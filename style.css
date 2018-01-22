@@ -2,6 +2,10 @@
 Theme Name: Q-Web-2018
 */
 
+html {
+  font-size: 18px;
+}
+
 /*
 @TODO: Das muss noch in den Customizer;
 */
@@ -122,15 +126,16 @@ header a,
   vertical-align: middle;
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 990px) {
   header > .container {
     position: relative;
   }
 
   .page__header__homelink {
+    float: right;
     margin-top: -3.28%;
     max-width: 221px;
-    position: absolute;
+    position: relative;
     right: 1.5rem;
     width: 14.85%;
     z-index: 1;
@@ -138,22 +143,54 @@ header a,
 
   .page__header__homelink span {
     color: #fff;
-    font-size: .9em;
+    font-size: 1.2rem;
     position: absolute;
     text-align: center;
-    top: 26%;
-    width: 100%;
+    top: 1.8rem;
+    width: 80%;
   }
 
   .page__header__logo {
     margin: 0;
     max-width: none;
+    position: absolute;
     width: 100%;
   }
 
   .page__menu {
     margin-top: 74px;
     position: static;
+  }
+
+  .page__menu__wrapper li.item-news {
+    margin-left: 1rem;
+  }
+
+  .page__menu__wrapper li.item-sprache,
+  .page__menu__wrapper li.item-social {
+    margin-left: .5rem;
+  }
+
+  .page__menu__wrapper li.item-news > a,
+  .page__menu__wrapper li.item-sprache > a {
+    background: #f49e31;
+    color: #fff;
+    padding: 0 .25rem;
+    text-transform: uppercase;
+  }
+
+  .page__menu__wrapper li.item-sprache > a {
+    background: #b0b0b0;
+  }
+
+  .page__menu__wrapper li.item-social > a {
+    color: #b0b0b0;
+  }
+}
+
+@media screen and (min-width: 1075px) {
+  .page__menu__wrapper li.item-news {
+    margin-left: 5rem;
   }
 }
 
@@ -196,4 +233,21 @@ header a,
 
 .page__footer__copyright {
   padding: 0 .5rem .5rem .5rem;
+}
+
+.page__footer__recent-posts {
+  margin-bottom: 1rem;
+}
+
+.page__footer__recent-posts--post {
+  background-color: #f49e31;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-family:"Unit Offc W01 Bold";
+  font-size: 1.5rem;
+  min-height: 175px;
+  padding: 1rem;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 1);
+  text-transform: uppercase;
 }

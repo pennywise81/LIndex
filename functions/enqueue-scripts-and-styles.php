@@ -107,6 +107,17 @@ function lindex_enqueue_scripts_and_styles() {
   );
 
   /*
+  Fontawesome
+  */
+  wp_enqueue_style(
+    'fontawesome',
+    get_template_directory_uri() . '/css/fontawesome-all.css',
+    array(),
+    '1.0.0',
+    'all'
+  );
+
+  /*
   Footer styling
   */
   wp_enqueue_style(

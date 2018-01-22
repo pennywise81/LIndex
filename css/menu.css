@@ -65,7 +65,7 @@
 /*
 At this width the menu will toggle
 */
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 990px) {
   .page__menu__wrapper .page__menu__toggle {
     display: none;
   }

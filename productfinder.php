@@ -51,7 +51,8 @@ $fahrzeuge_to_hersteller = get_posts(
     <?php
 
     foreach ($fahrzeuge_to_hersteller as $f) {
-      echo '<option data-url="' . get_permalink($hersteller_id) .
+      echo '<option value="' . $f->ID . '"';
+      echo ' data-url="' . get_permalink($hersteller_id) .
         '?fahrzeug_id=' . $f->ID . '"';
       echo ($fahrzeug_id == $f->ID ? ' selected' : '');
       echo '>' . $f->post_title . '</option>';
@@ -62,6 +63,7 @@ $fahrzeuge_to_hersteller = get_posts(
   <br>
   <?php
 
+  /*
   if ($fahrzeug_id != 0) {
 
     $tmp = get_posts(
@@ -99,6 +101,7 @@ $fahrzeuge_to_hersteller = get_posts(
     echo "</pre>";
 
   }
+  */
 
 
   ?>

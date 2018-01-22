@@ -14,6 +14,40 @@
   margin: 0 -1rem;
 }
 
+.grid__row {
+  display: flex;
+  width: 100%;
+}
+
+.grid__row > [class*="grid__box"] {
+  flex: 1;
+  margin: 0 .5rem;
+}
+
+.grid__box--one-third {
+  width: 33.333%;
+}
+
+.grid__box--one-third:first-child {
+  margin-left: 0;
+}
+
+.grid__box--one-third:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .grid__row {
+    display: block;
+  }
+
+  .grid__row > [class*="grid__box"] {
+    display: block;
+    margin: .5rem 0;
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 1320px) {
   .container--maxwidth {}
 }
