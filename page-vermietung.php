@@ -6,7 +6,7 @@
 
   <?php
 
-// Hiermit holen wir uns alle möglichen Werte des Feldes (doof :/)
+// Hiermit holen wir uns alle möglichen Werte des Feldes 'Land' (doof, aber geht erstmal nicht anders :/)
 // https://support.advancedcustomfields.com/forums/topic/get-a-field-object-outside-of-the-post-context/
 $laender = get_field_object('field_5a67079b1ecfe');
 
@@ -19,7 +19,7 @@ foreach ($laender['choices'] as $laendercode => $land) {
         'relation' => 'AND',
         'typ_clause' => array(
           'key' => 'typ',
-          'value' => 'h',
+          'value' => 'v',
           'compare' => 'LIKE',
         ),
         'land_clause' => array(
