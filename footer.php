@@ -5,12 +5,21 @@
       <?php
 
       $current_language = pll_current_language();
+      $current_language_categories = array();
+
+      // "Messe" (4), "News" (5), "[EN] Messe" (36), "[EN] News" (40)
+      if ($current_language == 'de') {
+        $current_language_categories = array(4, 5);
+      } elseif ($current_language == 'en') {
+        $current_language_categories = array(36, 40);
+      }
 
       $recent_posts = get_posts(
         array(
           'post_type' => 'post',
+          'numberposts' => 3,
           'lang' => $current_language,
-          'numberposts' => 3
+          'category__in' => $current_language_categories,
         )
       );
 

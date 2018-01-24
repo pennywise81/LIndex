@@ -25,7 +25,8 @@
 }
 
 .grid__box--one-third {
-  width: 33.333%;
+  flex-basis: 33.333%;
+  max-width: 33.333%;
 }
 
 .grid__box--one-third:first-child {
@@ -45,6 +46,7 @@
     display: block;
     margin: .5rem 0;
     width: 100%;
+    max-width: none;
   }
 }
 
