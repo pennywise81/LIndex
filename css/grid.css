@@ -53,3 +53,13 @@
 @media screen and (max-width: 1320px) {
   .container--maxwidth {}
 }
+
+/* Component Media Box */
+.media-box {}
+
+.media-box__media {}
+
+.media-box__media--numbered {}
+
+.media-box__content {}
+/* Component Media Box END */

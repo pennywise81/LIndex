@@ -72,8 +72,10 @@ header a,
   font-family:"Unit Offc W01 Bold";
 }
 
-.page__menu__wrapper ul.sub-menu {
+.page__menu__wrapper ul.sub-menu,
+.page__menu__submenu--fullsize {
   background-color: #fff;
+  box-shadow: 5px 5px 10px rgba(0,0,0,.5);
 }
 
 .page__menu__wrapper > ul > li.page__menu__item--has-fullsize-submenu {
@@ -250,4 +252,16 @@ header a,
   padding: 1rem;
   text-shadow: 1px 1px 8px rgba(0, 0, 0, 1);
   text-transform: uppercase;
+}
+
+.post {}
+
+.post h2 a {
+  color: #4a280d;
+  text-decoration: none;
+}
+
+.breakout > img {
+  max-width: none;
+  width: 100%;
 }
