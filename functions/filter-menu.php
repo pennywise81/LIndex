@@ -33,6 +33,8 @@ function filter_menu($nav, $args) {
     // Neues Submenu-Markup erstellen
     $additionalMenuMarkup  = '';
     $additionalMenuMarkup .= '<div class="page__menu__submenu--fullsize">';
+
+    /*
     $additionalMenuMarkup .= '<div class="manufacturers">';
 
     // Alle Hersteller raussuchen
@@ -51,11 +53,13 @@ function filter_menu($nav, $args) {
     }
 
     $additionalMenuMarkup .= '</div>';
+    */
+
     $additionalMenuMarkup .= '<div class="ququq-boxes">';
 
     // Alle Boxen raussuchen
     $boxen = get_posts(array(
-      'post_type' => 'ququq',
+      'post_type' => 'ququq_box',
       'post_status' => 'publish',
       'orderby' => 'title',
       'order' => 'ASC',
