@@ -12,8 +12,10 @@ $technische_daten = get_field('technische_daten', $id);
 $versionen = get_field('versionen', $id);
 $versionen_namen = array();
 
-foreach ($versionen as $v) {
-  $versionen_namen[] = $v['name'];
+if (is_array($versionen)) {
+  foreach ($versionen as $v) {
+    $versionen_namen[] = $v['name'];
+  }
 }
 
 $alle_versionen = count($versionen_namen) > 0 ? '(' . implode('/', $versionen_namen) . ') ' : '';

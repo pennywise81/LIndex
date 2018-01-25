@@ -23,3 +23,4 @@ require_once 'functions/remove_menu_page.php';
 require_once 'functions/filter-menu.php';
 
 require_once 'functions/init_productfinder.php';
+require_once 'functions/filter-acf-ququq.php';

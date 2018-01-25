@@ -12,7 +12,7 @@ $laender = get_field_object('field_5a67079b1ecfe');
 
 foreach ($laender['choices'] as $laendercode => $land) {
   $rows = get_posts(array(
-    'post_type' => 'adressen',
+    'post_type' => 'adresse',
     'posts_per_page' => -1,
     'meta_query' => array(
       array (
