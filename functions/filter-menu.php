@@ -34,12 +34,11 @@ function filter_menu($nav, $args) {
     $additionalMenuMarkup  = '';
     $additionalMenuMarkup .= '<div class="page__menu__submenu--fullsize">';
 
-    /*
     $additionalMenuMarkup .= '<div class="manufacturers">';
 
     // Alle Hersteller raussuchen
     $hersteller = get_posts(array(
-      'post_type' => 'manufacturer',
+      'post_type' => 'fahrzeug_hersteller',
       'post_status' => 'publish',
       'orderby' => 'title',
       'order' => 'ASC',
@@ -47,13 +46,14 @@ function filter_menu($nav, $args) {
     ));
 
     foreach ($hersteller as $h) {
-      $thumb = get_the_post_thumbnail($h->ID);
+      $logo = get_field('logo', $h->ID);
+
       $additionalMenuMarkup .= '<a href="' . get_post_permalink($h->ID) .
-        '" class="manufacturer__icon-link">' . $thumb . '</a>';
+        '" class="manufacturer__icon-link"><img src="' . $logo . '"><span>' .
+        $h->post_title . '</span></a>';
     }
 
     $additionalMenuMarkup .= '</div>';
-    */
 
     $additionalMenuMarkup .= '<div class="ququq-boxes">';
 
