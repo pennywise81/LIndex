@@ -75,7 +75,6 @@ header a,
 .page__menu__wrapper ul.sub-menu,
 .page__menu__submenu--fullsize {
   background-color: #fff;
-  box-shadow: 5px 5px 10px rgba(0,0,0,.5);
 }
 
 .page__menu__wrapper > ul > li.page__menu__item--has-fullsize-submenu {
@@ -112,6 +111,10 @@ header a,
 
 .manufacturer__icon-link img {
   vertical-align: middle;
+}
+
+.manufacturer__icon-link span {
+  display: none;
 }
 
 /* normale menu-Link Styles überschreiben */
@@ -162,6 +165,11 @@ header a,
   .page__menu {
     margin-top: 74px;
     position: static;
+  }
+
+  .page__menu__wrapper ul.sub-menu,
+  .page__menu__submenu--fullsize {
+    box-shadow: 5px 5px 10px rgba(0,0,0,.5);
   }
 
   .page__menu__wrapper li.item-news {

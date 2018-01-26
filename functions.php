@@ -12,15 +12,6 @@ require_once 'functions/remove-filter-wpautop.php';
 require_once 'functions/theme-support-post-thumbnails.php';
 require_once 'functions/theme-features.php';
 require_once 'functions/remove_menu_page.php';
-
-// Custom Types
-// require_once 'functions/custom-post-type-hersteller.php';
-// require_once 'functions/custom-post-type-fahrzeug.php';
-// require_once 'functions/custom-post-type-fahrzeugvariante.php';
-// require_once 'functions/custom-post-type-ququq.php';
-// require_once 'functions/custom-post-type-ququqvariante.php';
-
 require_once 'functions/filter-menu.php';
-
-require_once 'functions/init_productfinder.php';
 require_once 'functions/filter-acf-ququq.php';
+require_once 'functions/Productfinder.class.php';

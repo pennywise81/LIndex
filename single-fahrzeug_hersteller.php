@@ -4,7 +4,7 @@
 <section class="page__content">
   <?php
 
-  include_once 'productfinder.php';
+  get_template_part('partials/productfinder');
 
   ?>
 </section>
