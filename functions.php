@@ -15,3 +15,4 @@ require_once 'functions/remove_menu_page.php';
 require_once 'functions/filter-menu.php';
 require_once 'functions/filter-acf-ququq.php';
 require_once 'functions/Productfinder.class.php';
+require_once 'functions/gridable-editable-attributes.php';

@@ -1,0 +1,5 @@
+[row cols_nr="2"][col size="8"]Zwei Drittel[/col][col size="4"]Ein Drittel[/col][/row]
+
+[row cols_nr="2"][col size="6"]Halb[/col][col size="6"]Halb[/col][/row]
+
+[row cols_nr="2"][col size="4"]Ein Drittel[/col][col size="4"]Ein Drittel[/col][col size="4"]Ein Drittel[/col][/row]

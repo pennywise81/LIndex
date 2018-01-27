@@ -25,8 +25,8 @@ $alle_versionen = count($versionen_namen) > 0 ? '(' . implode('/', $versionen_na
 
 <section class="page__content ququq">
   <?php get_template_part('partials/headerbild'); ?>
-  <div class="grid__row">
-    <div class="grid__box--two-third ququq__content">
+  <div class="gridable gridable--row">
+    <div class="gridable--col col-8 ququq__content">
       <?php get_template_part('partials/loop', 'no_title'); ?><br>
 
       <?php if (!empty($artikelbild)) { ?>
@@ -35,8 +35,10 @@ $alle_versionen = count($versionen_namen) > 0 ? '(' . implode('/', $versionen_na
 
       <?php if (!empty($preis)) { ?>
         <div class="ququq__preis">
-          QUQUQ <?php echo $title; ?> ab <?php echo $preis; ?> €<br>
-          <small><?php echo $alle_versionen; ?>inkl. MwSt. zzgl. Versand</small>
+          <h3>
+            QUQUQ <?php echo $title; ?> ab <?php echo $preis; ?> €<br>
+            <small><?php echo $alle_versionen; ?>inkl. MwSt. zzgl. Versand</small>
+          </h3>
         </div>
       <?php } ?>
 
@@ -46,21 +48,30 @@ $alle_versionen = count($versionen_namen) > 0 ? '(' . implode('/', $versionen_na
         <div class="ququq__details"><?php echo $details; ?></div>
       <?php } ?>
     </div>
-    <div class="grid__box--one-third">
+    <div class="gridable--col col-4">
       <?php if (!empty($vorteile)) { ?>
-        <div class="ququq__vorteile"><?php echo $vorteile; ?></div>
+        <div class="ququq__vorteile box-colored box-colored--yellow">
+          <h3>Die Vorteile auf einen Blick</h3>
+          <?php echo $vorteile; ?>
+        </div>
       <?php } ?>
 
-      <!-- Fahrzeugliste -->
+      <div class="ququq__lieferumfang box-colored box-colored--brown">
+        <h3>Die KombiBox passt in</h3>
+      </div>
 
       <?php if (!empty($lieferumfang)) { ?>
-        <div class="ququq__lieferumfang"><?php echo $lieferumfang; ?></div>
+        <div class="ququq__lieferumfang box-colored box-colored--brown-bordered">
+          <?php echo $lieferumfang; ?>
+        </div>
       <?php } ?>
     </div>
   </div>
 
   <?php if (!empty($technische_daten)) { ?>
-    <div class="ququq__technische_daten"><?php echo $technische_daten; ?></div>
+    <div class="ququq__technische_daten box-colored box-colored--yellow-bordered">
+      <?php echo $technische_daten; ?>
+    </div>
   <?php } ?>
 
 </section>

@@ -1,7 +1,7 @@
 <!-- footer.php -->
   </main>
   <footer class="page__footer container container--maxwidth">
-    <div class="page__footer__recent-posts grid__row">
+    <div class="page__footer__recent-posts gridable gridable--row">
       <?php
 
       $current_language = pll_current_language();
@@ -26,8 +26,8 @@
       foreach ($recent_posts as $p) {
         $link = get_permalink($p->ID);
 
+        echo '<div class="page__footer__recent-posts--post gridable--col col-4">';
         echo '<a href="' . $link . '" ';
-        echo 'class="page__footer__recent-posts--post grid__box--one-third" ';
 
         if (has_post_thumbnail($p->ID)) {
           $img = get_the_post_thumbnail_url($p->ID);
@@ -36,15 +36,10 @@
 
         echo '>';
 
-        /*
-        echo "<pre>";
-        print_r(get_the_category($p->ID));
-        echo "</pre>";
-        */
-
         echo $p->post_title;
 
         echo '</a>';
+        echo '</div>';
       }
 
       ?>
