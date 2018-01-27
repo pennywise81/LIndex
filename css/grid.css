@@ -10,8 +10,17 @@
   padding: 0 1rem;
 }
 
-.container--padded .breakout {
-  margin: 0 -1rem;
+.breakout {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.breakout > img {
+  max-width: none;
+  width: 100%;
 }
 
 /* Component Media Box */

@@ -245,6 +245,10 @@ header a,
   padding: 0 .5rem .5rem .5rem;
 }
 
+.page__footer__recent-posts {
+  /*width: 100%;*/
+}
+
 .page__footer__recent-posts--post a {
   background-color: #f49e31;
   background-size: cover;
@@ -257,11 +261,6 @@ header a,
   padding: 1rem;
   text-shadow: 1px 1px 8px rgba(0, 0, 0, 1);
   text-transform: uppercase;
-}
-
-.breakout > img {
-  max-width: none;
-  width: 100%;
 }
 
 .page__content ul {
