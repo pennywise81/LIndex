@@ -1,3 +1,4 @@
+/* Container definition */
 [class*="container"] {
   margin: 0 auto;
 }
@@ -9,7 +10,9 @@
 .container--padded {
   padding: 0 1rem;
 }
+/* Container definition END */
 
+/* Breakout module */
 .breakout {
   align-items: flex-end;
   display: flex;
@@ -22,6 +25,7 @@
   max-width: none;
   width: 100%;
 }
+/* Breakout module END */
 
 /* Component Media Box */
 .media-box {}
@@ -58,3 +62,25 @@
   border: 1px solid #4a280d;
 }
 /* Colored Box END */
+
+/* Gridable Plugin overwrites */
+.gridable--row {
+  justify-content: flex-start;
+}
+
+.gridable--col.col-1-of-7 {
+  -ms-flex-preferred-size: 14.285%;
+  flex-basis: 14.285%;
+  width: 14.285%;
+  max-width: 14.285%;
+}
+
+@media screen and (max-width: 700px) {
+  .gridable--col.col-1-of-5-small {
+    -ms-flex-preferred-size: 20%;
+    flex-basis: 20%;
+    width: 20%;
+    max-width: 20%;
+  }
+}
+/* Gridable Plugin overwrites END */

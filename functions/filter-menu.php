@@ -34,7 +34,9 @@ function filter_menu($nav, $args) {
     $additionalMenuMarkup  = '';
     $additionalMenuMarkup .= '<div class="page__menu__submenu--fullsize">';
 
-    $additionalMenuMarkup .= '<div class="manufacturers">';
+    $additionalMenuMarkup .= '<div class="gridable--row">';
+    $additionalMenuMarkup .= '<div class="gridable--col col-10">';
+    $additionalMenuMarkup .= '<div class="manufacturers gridable--row">';
 
     // Alle Hersteller raussuchen
     $hersteller = get_posts(array(
@@ -49,13 +51,12 @@ function filter_menu($nav, $args) {
       $logo = get_field('logo', $h->ID);
 
       $additionalMenuMarkup .= '<a href="' . get_post_permalink($h->ID) .
-        '" class="manufacturer__icon-link"><img src="' . $logo . '"><span>' .
-        $h->post_title . '</span></a>';
+        '" class="manufacturer__icon-link gridable--col col-1-of-7 col-1-of-5-small"><img src="' . $logo . '"></a>';
     }
 
     $additionalMenuMarkup .= '</div>';
 
-    $additionalMenuMarkup .= '<div class="ququq-boxes">';
+    $additionalMenuMarkup .= '<div class="ququq-boxes gridable--row">';
 
     // Alle Boxen raussuchen
     $boxen = get_posts(array(
@@ -69,9 +70,12 @@ function filter_menu($nav, $args) {
     foreach ($boxen as $b) {
       $thumb = get_the_post_thumbnail($b->ID);
       $additionalMenuMarkup .= '<a href="' . get_post_permalink($b->ID) .
-        '" class="ququq-box__icon-link">' . $thumb . '</a>';
+        '" class="ququq-box__icon-link gridable--col col-4">' . $thumb . '<span>' .
+        $b->post_title . '</span></a>';
     }
 
+    $additionalMenuMarkup .= '</div>';
+    $additionalMenuMarkup .= '</div>';
     $additionalMenuMarkup .= '</div>';
 
     // neues Submenu-Markup in DOM-Objekt umwandeln
