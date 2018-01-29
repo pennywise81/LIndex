@@ -1,5 +1,19 @@
 <?php
 
+$headerbild = get_field('headerbild', 'option');
+
+if (!empty($headerbild)) {
+  echo '</section>';
+  echo '</main>';
+
+  echo '<div class="breakout">';
+  echo '  <img src="' . $headerbild . '">';
+  echo '</div>';
+
+  echo '<main class="page__main container container--maxwidth container--padded">';
+  echo '<section class="page__content">';
+}
+
 $hersteller_id = get_the_ID();
 $alle_hersteller = Productfinder::getAllHersteller();
 $fahrzeuge_to_hersteller_id = Productfinder::getFahrzeugeZuHerstellerId($hersteller_id);

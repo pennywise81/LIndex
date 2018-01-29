@@ -22,6 +22,13 @@ function filter_menu($nav, $args) {
     $cssClasses = $parent->getAttribute('class');
     $cssClasses = explode(' ', $cssClasses);
     $cssClasses[] = 'page__menu__item--has-fullsize-submenu';
+    // Klasse "current-menu-parent" hinzufügen, wenn aktueller Menüpunkt
+    // fahrzeug_hersteller
+    // fahrzeug_modell
+    // ququq_box
+    if (in_array(get_post_type(), array('fahrzeug_hersteller', 'fahrzeug_modell', 'ququq_box'))) {
+      $cssClasses[] = 'current-menu-parent';
+    }
     $parent->setAttribute('class', implode(' ', $cssClasses));
 
     // Submenu raussuchen und löschen

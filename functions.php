@@ -16,3 +16,5 @@ require_once 'functions/filter-menu.php';
 require_once 'functions/filter-acf-ququq.php';
 require_once 'functions/Productfinder.class.php';
 require_once 'functions/gridable-editable-attributes.php';
+require_once 'functions/acf-options-page.php';
+require_once 'functions/image-sizes.php';
