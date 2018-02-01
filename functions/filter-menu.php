@@ -43,6 +43,8 @@ function filter_menu($nav, $args) {
 
     $additionalMenuMarkup .= '<div class="gridable--row">';
     $additionalMenuMarkup .= '<div class="gridable--col col-10">';
+
+    /*
     $additionalMenuMarkup .= '<div class="manufacturers gridable--row">';
 
     // Alle Hersteller raussuchen
@@ -62,6 +64,7 @@ function filter_menu($nav, $args) {
     }
 
     $additionalMenuMarkup .= '</div>';
+    */
 
     $additionalMenuMarkup .= '<div class="ququq-boxes gridable--row">';
 

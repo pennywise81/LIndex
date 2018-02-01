@@ -4,6 +4,7 @@ Theme Name: Q-Web-2018
 
 html {
   font-size: 18px;
+  -webkit-font-smoothing: antialiased;
 }
 
 /*
@@ -139,6 +140,15 @@ h1 {
   .page__menu {
     margin-top: 74px;
     position: static;
+  }
+
+  .page__menu__wrapper li.item-home a {
+    color: #f49e31;
+    font-family: "Unit Offc W01 Regular";
+  }
+
+  .page__menu__wrapper li.item-home a br {
+    content: initial;
   }
 
   .page__menu__wrapper ul.sub-menu,
@@ -320,6 +330,10 @@ h1 {
 
 .page__footer__copyright {
   padding: 0 .5rem .5rem .5rem;
+}
+
+.page__footer__recent-posts {
+  width: 100%;
 }
 
 .page__footer__recent-posts--post a {

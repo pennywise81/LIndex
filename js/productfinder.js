@@ -1,6 +1,6 @@
 jQuery(document).ready( function() {
 
-  jQuery(".select-hersteller, .select-fahrzeug").change(function(e) {
+  jQuery(".productfinder__searchform select").change(function(e) {
   // jQuery(".select-hersteller").change(function(e) {
     e.preventDefault();
 
@@ -16,8 +16,8 @@ jQuery(document).ready( function() {
       dataType: "json",
       url: productfinder.url,
       data: {
-        action: "changedManufacturer",
-        herstellerId: jQuery(".select-hersteller").val()
+        action: "herstellerGewechselt",
+        h_id: jQuery(".select-hersteller").val()
       },
       success: function(fahrzeuge) {
         // Fahrzeuge zurücksetzen ...
@@ -46,17 +46,11 @@ jQuery(document).ready( function() {
       dataType: "json",
       url: productfinder.url,
       data: {
-        action: "changedVehicle",
-        fahrzeugId: jQuery(".select-fahrzeug").val()
+        action: "fahrzeugGewechselt",
+        f_id: jQuery(".select-fahrzeug").val()
       },
       success: function(items) {
         window.console && console.log(items);
-
-        if (items.length == 1) {
-          window.console && console.log(items[0].id);
-        } else {
-          window.console && console.log('mehrere ergebnisse');
-        }
       }
     });
     */
