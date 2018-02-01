@@ -1,48 +1,50 @@
 <!-- footer.php -->
   </main>
   <footer class="page__footer container container--maxwidth">
-    <div class="page__footer__recent-posts gridable gridable--row">
-      <?php
+    <div class="page__footer__recent-posts">
+      <div class="gridable gridable--row">
+        <?php
 
-      $current_language = pll_current_language();
-      $current_language_categories = array();
+        $current_language = pll_current_language();
+        $current_language_categories = array();
 
-      // "Messe" (4), "News" (5), "[EN] Messe" (36), "[EN] News" (40)
-      if ($current_language == 'de') {
-        $current_language_categories = array(4, 5);
-      } elseif ($current_language == 'en') {
-        $current_language_categories = array(36, 40);
-      }
-
-      $recent_posts = get_posts(
-        array(
-          'post_type' => 'post',
-          'numberposts' => 3,
-          'lang' => $current_language,
-          'category__in' => $current_language_categories,
-        )
-      );
-
-      foreach ($recent_posts as $p) {
-        $link = get_permalink($p->ID);
-
-        echo '<div class="page__footer__recent-posts--post gridable--col col-4">';
-        echo '<a href="' . $link . '" ';
-
-        if (has_post_thumbnail($p->ID)) {
-          $img = get_the_post_thumbnail_url($p->ID);
-          echo 'style="background-image:url(' . $img . ')" ';
+        // "Messe" (4), "News" (5), "[EN] Messe" (36), "[EN] News" (40)
+        if ($current_language == 'de') {
+          $current_language_categories = array(4, 5);
+        } elseif ($current_language == 'en') {
+          $current_language_categories = array(36, 40);
         }
 
-        echo '>';
+        $recent_posts = get_posts(
+          array(
+            'post_type' => 'post',
+            'numberposts' => 3,
+            'lang' => $current_language,
+            'category__in' => $current_language_categories,
+          )
+        );
 
-        echo $p->post_title;
+        foreach ($recent_posts as $p) {
+          $link = get_permalink($p->ID);
 
-        echo '</a>';
-        echo '</div>';
-      }
+          echo '<div class="page__footer__recent-posts--post gridable--col col-4">';
+          echo '<a href="' . $link . '" ';
 
-      ?>
+          if (has_post_thumbnail($p->ID)) {
+            $img = get_the_post_thumbnail_url($p->ID);
+            echo 'style="background-image:url(' . $img . ')" ';
+          }
+
+          echo '>';
+
+          echo $p->post_title;
+
+          echo '</a>';
+          echo '</div>';
+        }
+
+        ?>
+      </div>
     </div>
     <div class="inner">
       <?php
