@@ -22,10 +22,8 @@ function filter_menu($nav, $args) {
     $cssClasses = $parent->getAttribute('class');
     $cssClasses = explode(' ', $cssClasses);
     $cssClasses[] = 'page__menu__item--has-fullsize-submenu';
+
     // Klasse "current-menu-parent" hinzufügen, wenn aktueller Menüpunkt
-    // fahrzeug_hersteller
-    // fahrzeug_modell
-    // ququq_box
     if (in_array(get_post_type(), array('fahrzeug_hersteller', 'fahrzeug_modell', 'ququq_box'))) {
       $cssClasses[] = 'current-menu-parent';
     }
@@ -78,9 +76,10 @@ function filter_menu($nav, $args) {
     ));
 
     foreach ($boxen as $b) {
-      $thumb = get_the_post_thumbnail($b->ID);
+      $thumb = get_the_post_thumbnail_url($b->ID);
+
       $additionalMenuMarkup .= '<a href="' . get_post_permalink($b->ID) .
-        '" class="ququq-box__icon-link gridable--col col-4">' . $thumb . '<span>' .
+        '" class="ququq-box__icon-link gridable--col col-4"><img src="' . $thumb . '"><span>' .
         $b->post_title . '</span></a>';
     }
 
@@ -90,7 +89,12 @@ function filter_menu($nav, $args) {
 
     // neues Submenu-Markup in DOM-Objekt umwandeln
     $additionalMenuDom = new DOMDocument();
+
+    // set error level
+    $internalErrors = libxml_use_internal_errors(true);
     $additionalMenuDom->loadHTML($additionalMenuMarkup, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+    // Restore error level
+    libxml_use_internal_errors($internalErrors);
 
     // Neues Submenu dem alten Markup hinzufügen ...
     $additionalMenuDomNode = $dom->importNode($additionalMenuDom->documentElement, true);

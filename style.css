@@ -459,3 +459,31 @@ h1 {
   width: 100%;
 }
 /* full wide images in content END */
+
+/* QUQUQ Boxen */
+.ququq__passende-fahrzeuge,
+.ququq__passende-fahrzeuge table,
+.ququq__passende-fahrzeuge a {
+  color: #fff;
+  width: 100%;
+}
+
+.ququq__passende-fahrzeuge table td:first-child {
+  font-family:"Unit Offc W01 Bold";
+  width: 40%;
+}
+
+.button {
+  display: block;
+  margin: 1rem 0;
+  padding: .25rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.button--bordered {
+  border: 1px solid #fff;
+}
+/* QUQUQ Boxen END */

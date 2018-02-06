@@ -7,6 +7,7 @@ $artikelbild = get_field('artikelbild', $id);
 $preis = get_field('preis', $id);
 $details = get_field('details', $id);
 $vorteile = get_field('vorteile', $id);
+$passende_fahrzeuge = get_field('passende_fahrzeuge', $id);
 $lieferumfang = get_field('lieferumfang', $id);
 $technische_daten = get_field('technische_daten', $id);
 $versionen = get_field('versionen', $id);
@@ -56,9 +57,18 @@ $alle_versionen = count($versionen_namen) > 0 ? '(' . implode('/', $versionen_na
         </div>
       <?php } ?>
 
-      <div class="ququq__lieferumfang box-colored box-colored--brown">
-        <h3>Die KombiBox passt in</h3>
-      </div>
+      <?php if (!empty($passende_fahrzeuge)) { ?>
+        <div class="ququq__passende-fahrzeuge box-colored box-colored--brown">
+          <h3>Die KombiBox passt in</h3>
+          <?php echo $passende_fahrzeuge; ?>
+          <a href="#" class="button button--bordered">Zur Fahrzeugauswahl</a>
+          <br>
+          <strong>Dein Wagen steht nicht auf der Liste?</strong><br>
+          <br>
+          Hier findest Du alle Maße mit denen Du prüfen kannst, ob Dein Fahrzeug
+          ggf. kompatibel ist: <a href="#">Voraussetzungen KombiBox</a>
+        </div>
+      <?php } ?>
 
       <?php if (!empty($lieferumfang)) { ?>
         <div class="ququq__lieferumfang box-colored box-colored--brown-bordered">
