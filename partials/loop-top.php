@@ -1,3 +1,4 @@
+<!-- loop-top.php -->
 <?php
 
 $posttype = get_post_type();
@@ -13,4 +14,5 @@ if ($posttype == 'post') {
 
 ?>
 
-<div class="<?php echo implode(' ', $css_classes); ?>">
+<div class="<?php echo implode(' ', $css_classes); ?>" id="post-<?php the_ID(); ?>">
+<!-- /loop-top.php -->

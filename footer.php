@@ -26,6 +26,19 @@
 
         foreach ($recent_posts as $p) {
           $link = get_permalink($p->ID);
+          $cat = get_the_category($p->ID);
+
+          if (isset($cat[0])) {
+            if ($cat[0]->slug == 'news') {
+              $link = '/news/#post-' . $p->ID;
+            } elseif ($cat[0]->slug == 'messe') {
+              $link = '/news/messen/#post-' . $p->ID;
+            } elseif ($cat[0]->slug == 'news-en') {
+              $link = '/news-english/#post-' . $p->ID;
+            } elseif ($cat[0]->slug == 'fair') {
+              $link = '/news-english/fairs/#post-' . $p->ID;
+            }
+          }
 
           echo '<div class="page__footer__recent-posts--post gridable--col col-4">';
           echo '<a href="' . $link . '" ';

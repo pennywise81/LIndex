@@ -76,7 +76,7 @@ function filter_menu($nav, $args) {
     ));
 
     foreach ($boxen as $b) {
-      $thumb = get_the_post_thumbnail_url($b->ID);
+      $thumb = get_the_post_thumbnail_url($b->ID, 'medium');
 
       $additionalMenuMarkup .= '<a href="' . get_post_permalink($b->ID) .
         '" class="ququq-box__icon-link gridable--col col-4"><img src="' . $thumb . '"><span>' .

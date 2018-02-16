@@ -19,3 +19,5 @@ require_once 'functions/init_productfinder.php';
 require_once 'functions/gridable-editable-attributes.php';
 require_once 'functions/acf-options-page.php';
 require_once 'functions/image-sizes.php';
+require_once 'functions/metaslider-params.php';
+require_once 'functions/polylang-strings.php';

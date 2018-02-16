@@ -37,8 +37,8 @@ $alle_versionen = count($versionen_namen) > 0 ? '(' . implode('/', $versionen_na
       <?php if (!empty($preis)) { ?>
         <div class="ququq__preis">
           <h3>
-            QUQUQ <?php echo $title; ?> ab <?php echo $preis; ?> €<br>
-            <small><?php echo $alle_versionen; ?>inkl. MwSt. zzgl. Versand</small>
+            QUQUQ <?php echo $title; ?> <?php pll_e("ab"); ?> <?php echo $preis; ?> €<br>
+            <small><?php echo $alle_versionen; ?><?php pll_e("inkl. MwSt. zzgl. Versand"); ?></small>
           </h3>
         </div>
       <?php } ?>
@@ -52,26 +52,30 @@ $alle_versionen = count($versionen_namen) > 0 ? '(' . implode('/', $versionen_na
     <div class="gridable--col col-4">
       <?php if (!empty($vorteile)) { ?>
         <div class="ququq__vorteile box-colored box-colored--yellow">
-          <h3>Die Vorteile auf einen Blick</h3>
+          <h3><?php pll_e("Die Vorteile auf einen Blick"); ?></h3>
           <?php echo $vorteile; ?>
         </div>
       <?php } ?>
 
       <?php if (!empty($passende_fahrzeuge)) { ?>
         <div class="ququq__passende-fahrzeuge box-colored box-colored--brown">
-          <h3>Die KombiBox passt in</h3>
+          <h3><?php echo str_replace("Box", $title, pll__("Die Box passt in")); ?></h3>
           <?php echo $passende_fahrzeuge; ?>
-          <a href="#" class="button button--bordered">Zur Fahrzeugauswahl</a>
+
+          <!--
+          <a href="#" class="button button--bordered"><?php pll_e("Zur Fahrzeugauswahl"); ?></a>
           <br>
-          <strong>Dein Wagen steht nicht auf der Liste?</strong><br>
+          <strong><?php pll_e("Dein Wagen steht nicht auf der Liste?"); ?></strong><br>
           <br>
-          Hier findest Du alle Maße mit denen Du prüfen kannst, ob Dein Fahrzeug
-          ggf. kompatibel ist: <a href="#">Voraussetzungen KombiBox</a>
+          <?php pll_e("Hier findest Du alle Maße mit denen Du prüfen kannst, ob Dein Fahrzeug ggf. kompatibel ist:"); ?>
+          <a href="#"><?php echo str_replace("Box", $title, pll__("Voraussetzungen Box")); ?></a>
+          -->
         </div>
       <?php } ?>
 
       <?php if (!empty($lieferumfang)) { ?>
         <div class="ququq__lieferumfang box-colored box-colored--brown-bordered">
+          <h3><?php pll_e("Lieferumfang"); ?></h3>
           <?php echo $lieferumfang; ?>
         </div>
       <?php } ?>

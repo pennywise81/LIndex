@@ -5,11 +5,9 @@ Theme Name: Q-Web-2018
 html {
   font-size: 18px;
   -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
-/*
-@TODO: Das muss noch in den Customizer;
-*/
 body,
 header,
 .page__menu__wrapper > ul,
@@ -31,7 +29,12 @@ header a,
 }
 
 h1 {
+  font-size: 1.5rem;
   margin-top: 0;
+}
+
+h2 {
+  font-size: 1rem;
 }
 
 .page__header__logo {
@@ -196,18 +199,25 @@ h1 {
 
   .page__menu__wrapper .ququq-box__icon-link {
     border: none;
-    margin-bottom: 0;
-    padding-left: 0;
-    padding-top: 0;
+    margin: 0;
+    padding: 0 .5rem .5rem 0;
+    position: relative;
     width: 400px;
   }
 
   .page__menu__wrapper .ququq-box__icon-link img {
-    display: inline;
+    display: block;
   }
 
   .page__menu__wrapper .ququq-box__icon-link span {
-    display: none;
+    color: #fff;
+    font-family:"Unit Offc W01 Bold";
+    font-size: 1.25rem;
+    left: .5rem;
+    position: absolute;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 1);
+    text-transform: uppercase;
+    top: .5rem;
   }
 
   .page__menu__wrapper li.item-news {
@@ -390,9 +400,12 @@ h1 {
   align-items: flex-end;
   display: flex;
   flex-direction: column;
-  max-height: 600px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 2rem auto;
+
   max-width: 1600px;
+  /*max-width: 1280px;
+  padding: 0 1rem;*/
+
   overflow: hidden;
   width: 100%;
 }
@@ -487,3 +500,27 @@ h1 {
   border: 1px solid #fff;
 }
 /* QUQUQ Boxen END */
+
+/* MetaSlider */
+.metaslider .flex-control-nav {
+  bottom: 20px !important;
+}
+
+.metaslider .flexslider {
+  margin-bottom: 0 !important;
+}
+
+.flex-control-paging li a {
+  background: url(img/flexslider-inactive.png) center no-repeat !important;
+  height: 16px !important;
+  width: 16px !important;
+}
+
+.flex-control-paging li a.flex-active {
+  background: url(img/flexslider-active.png) center no-repeat !important;
+}
+
+.flex-viewport {
+  transition: height .2s !important;
+}
+/* MetaSlider END */
