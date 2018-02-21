@@ -107,6 +107,17 @@ function lindex_enqueue_scripts_and_styles() {
   );
 
   /*
+  Images
+  */
+  wp_enqueue_style(
+    'lindex-images',
+    get_template_directory_uri() . '/css/images.css',
+    array(),
+    '1.0.0',
+    'all'
+  );
+
+  /*
   All the other (custom) styles
   */
   wp_enqueue_style(

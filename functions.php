@@ -10,3 +10,4 @@ require_once 'functions/sidebar-customization.php';
 require_once 'functions/website-customization.php';
 require_once 'functions/theme-support-post-thumbnails.php';
 require_once 'functions/theme-features.php';
+require_once 'functions/attachment-categories.php';
