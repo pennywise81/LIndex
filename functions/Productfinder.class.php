@@ -53,6 +53,12 @@ class Productfinder {
     die();
   }
 
+  public static function ajax_variant_changed() {
+    echo json_encode('hans');
+
+    die();
+  }
+
   public static function getAllHersteller() {
     return get_posts(
       array(

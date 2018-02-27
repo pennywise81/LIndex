@@ -8,6 +8,7 @@ function my_acf_load_field($field) {
   $rows = get_posts(array(
     'post_type' => 'ququq_box',
     'posts_per_page' => -1,
+    'lang' => 'de',
   ));
 
   foreach ($rows as $r) {
@@ -15,7 +16,7 @@ function my_acf_load_field($field) {
 
     if (is_array($versionen)) {
       foreach ($versionen as $v) {
-        $field['choices'][$v['name']] = $v['name'];
+        $field['choices'][$v['name']] = $r->post_title . ' ' . $v['name'];
       }
     }
     else {

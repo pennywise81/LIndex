@@ -11,14 +11,6 @@ if (get_post_type() == 'fahrzeug_hersteller') {
 $alle_hersteller = Productfinder::getAllHersteller();
 $fahrzeuge_to_hersteller_id = Productfinder::getFahrzeugeZuHerstellerId($hersteller_id);
 $headerbild = get_field('headerbild', 'option');
-$available_choices = array();
-$possible_choices = array();
-$sequence = array('bank', 'reihe_drei', 'reihe_zwei');
-$url = get_post_permalink();
-
-foreach ($sequence as $s) {
-  ${$s} = (isset($_REQUEST[$s])) ? $_REQUEST[$s] : null;
-}
 
 // Selectbox für Hersteller zusammenbauen
 $values = array();
@@ -66,135 +58,62 @@ if (!empty($headerbild)) {
   <br>
   <?php echo $select_fahrzeuge; ?>
   <br>
+
   <?php
 
-  // alle Auswahlmöglichkeiten ermitteln
-  if (have_rows('varianten')) {
+  if ($fahrzeug_id != 0) {
+    $selects = array();
+
     while (have_rows('varianten')) {
       the_row();
 
-      foreach ($sequence as $s) {
-        $fieldData = get_sub_field_object($s);
-        $value = get_sub_field($s);
+      $auspraegungen = get_sub_field('auspraegungen');
 
-        if (array_key_exists($s, $possible_choices)) {
-          if (!in_array($value, $possible_choices[$s]['choices'])) {
-            $possible_choices[$s]['choices'][] = $value;
+      foreach ($auspraegungen as $a) {
+        if (is_array($selects[$a['bezeichnung']])) {
+          if (!in_array($a['wert'], $selects[$a['bezeichnung']])) {
+            $selects[$a['bezeichnung']][] = $a['wert'];
           }
         } else {
-          $possible_choices[$s] = array(
-            'choices' => array($value),
-            'label' => $fieldData['label'],
-            'choiceLabels' => $fieldData['choices'],
-          );
+          $selects[$a['bezeichnung']] = array('keine Auswahl', $a['wert']);
         }
       }
 
+      /*
+      echo "<pre>";
+      print_r(get_sub_field('auspraegungen'));
+      echo "</pre>";
+
+      echo "<pre>";
+      print_r(get_sub_field('ququq_version'));
+      echo "</pre>";
+
+      echo "<pre>";
+      print_r(get_sub_field('galerie'));
+      echo "</pre>";
+      */
     }
-  }
 
-  // noch mögliche Auswahlmöglichkeiten ermitteln
-  if (have_rows('varianten')) {
-    while (have_rows('varianten')) {
-      the_row();
+    if (count($selects) > 0) {
+      reset($selects);
+      $first_key = key($selects);
 
-      foreach ($sequence as $s) {
-        if (${$s} != null) {
-          if (get_sub_field($s) != ${$s}) {
-            continue;
-          }
-        } else {
-          $value = get_sub_field($s);
+      ?>
 
-          if (array_key_exists($s, $available_choices)) {
-            if (!in_array($value, $available_choices[$s])) {
-              $available_choices[$s][] = $value;
-            }
-          } else {
-            $available_choices[$s] = array($value);
-          }
+        <select class="variant-filters">
+        <?php
+
+        foreach ($selects[$first_key] as $o) {
+          echo '<option value="' . $o . '">' . $first_key . ': ' . $o . '</option>';
         }
-      }
 
+        ?>
+        </select>
+
+      <?php
     }
   }
-
-  if (!empty($possible_choices['reihe_drei']) && count($possible_choices['reihe_drei']['choices']) >= 1) {
-    $values = array();
-
-    foreach ($possible_choices['reihe_drei']['choices'] as $c) {
-      $values[] = array(
-        'value' => $c,
-        'option' => $possible_choices['reihe_drei']['choiceLabels'][$c],
-        'additional_attributes' => array(
-          'data-url' => $url . '?reihe_drei=' . $c,
-        ),
-      );
-    }
-
-    echo Productfinder::getSelect('reihe_drei', $values, $reihe_drei) . '<br>';
-  }
-
-  if ($reihe_drei != null || count($possible_choices['reihe_drei']['choices']) <= 1) {
-    if (!empty($possible_choices['reihe_zwei']) && count($possible_choices['reihe_zwei']['choices']) >= 1) {
-      $values = array();
-
-      foreach ($available_choices['reihe_zwei'] as $c) {
-        $values[] = array(
-          'value' => $c,
-          'option' => $possible_choices['reihe_zwei']['choiceLabels'][$c],
-          'additional_attributes' => array(
-            'data-url' => $url . '?reihe_zwei=' . $c,
-          ),
-        );
-      }
-
-      echo Productfinder::getSelect('reihe_zwei', $values, $reihe_zwei) . '<br>';
-    }
-  }
-
-  echo "<pre>";
-  print_r($possible_choices);
-  print_r($available_choices);
-  echo "</pre>";
-
-  /*
-  for ($i = 0; $i < count($sequence); $i++) {
-    $s = $sequence[$i];
-
-    if (count($possible_choices[$s]['choices']) <= 1) {
-      continue;
-    }
-
-    // if (${$s} == null) {
-      $values = array();
-
-      foreach ($possible_choices[$s]['choices'] as $c) {
-        // if (!in_array($c, $available_choices)) {
-        //   continue;
-        // }
-
-        // $url_t = $url . '?' . implode('&', $url_params);
-        $url_t = $url . '?' . $s . '=' . $c;
-
-        $values[] = array(
-          'value' => $c,
-          'option' => $possible_choices[$s]['label'] . ' = ' . $possible_choices[$s]['choiceLabels'][$c],
-          'additional_attributes' => array(
-            'data-url' => $url_t,
-          ),
-        );
-      }
-
-      echo Productfinder::getSelect($s, $values, ${$s}) . '<br>';
-    // } else {}
-
-  }
-  */
 
   ?>
+
 </div>
-
-<?php
-
-?>

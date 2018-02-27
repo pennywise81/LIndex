@@ -5,6 +5,7 @@ $id = get_the_ID();
 $title = get_the_title();
 $artikelbild = get_field('artikelbild', $id);
 $preis = get_field('preis', $id);
+$preiszusatzbezeichnung = get_field('preiszusatzbezeichnung', $id);
 $details = get_field('details', $id);
 $vorteile = get_field('vorteile', $id);
 $passende_fahrzeuge = get_field('passende_fahrzeuge', $id);
@@ -38,7 +39,12 @@ $alle_versionen = count($versionen_namen) > 0 ? '(' . implode('/', $versionen_na
         <div class="ququq__preis">
           <h3>
             QUQUQ <?php echo $title; ?> <?php pll_e("ab"); ?> <?php echo $preis; ?> €<br>
-            <small><?php echo $alle_versionen; ?><?php pll_e("inkl. MwSt. zzgl. Versand"); ?></small>
+            <small>
+              <?php if (!empty($preiszusatzbezeichnung)) { ?>
+                <?php echo $preiszusatzbezeichnung; ?>
+              <?php } ?>
+              <?php pll_e("inkl. MwSt. zzgl. Versand"); ?>
+            </small>
           </h3>
         </div>
       <?php } ?>

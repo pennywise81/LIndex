@@ -18,3 +18,6 @@ add_action("wp_ajax_nopriv_herstellerGewechselt", array('Productfinder', 'ajaxSe
 
 add_action("wp_ajax_fahrzeugGewechselt", array('Productfinder', 'ajaxSelectFahrzeug'));
 add_action("wp_ajax_nopriv_fahrzeugGewechselt", array('Productfinder', 'ajaxSelectFahrzeug'));
+
+add_action("wp_ajax_variant_changed", array('Productfinder', 'ajax_variant_changed'));
+add_action("wp_ajax_nopriv_variant_changed", array('Productfinder', 'ajax_variant_changed'));

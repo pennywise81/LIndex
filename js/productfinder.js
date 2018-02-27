@@ -10,51 +10,23 @@ jQuery(document).ready( function() {
       window.location.href = target;
     }
 
-    /*
-    jQuery.ajax({
-      type: "post",
-      dataType: "json",
-      url: productfinder.url,
-      data: {
-        action: "herstellerGewechselt",
-        h_id: jQuery(".select-hersteller").val()
-      },
-      success: function(fahrzeuge) {
-        // Fahrzeuge zurücksetzen ...
-        jQuery(".select-fahrzeug").children().slice(1).remove();
-
-        // ... und neu befüllen
-        jQuery.each(fahrzeuge, function(index, fahrzeug) {
-          jQuery(".select-fahrzeug").append(
-            '<option value="' + fahrzeug.ID + '">' +
-            fahrzeug.post_title +
-            '</option>'
-          );
-        });
-      }
-    });
-    */
-
   });
 
-  jQuery(".select-fahrzeug").change(function(e) {
+  jQuery('.variant-filters').change(function(e) {
     e.preventDefault();
 
-    /*
     jQuery.ajax({
       type: "post",
       dataType: "json",
       url: productfinder.url,
       data: {
-        action: "fahrzeugGewechselt",
+        action: "variant_changed",
         f_id: jQuery(".select-fahrzeug").val()
       },
       success: function(items) {
         window.console && console.log(items);
       }
     });
-    */
-
   });
 
 });
