@@ -35,19 +35,31 @@ $alle_versionen = count($versionen_namen) > 0 ? '(' . implode('/', $versionen_na
         <img src="<?php echo $artikelbild; ?>" class="ququq__artikelbild">
       <?php } ?>
 
-      <?php if (!empty($preis)) { ?>
-        <div class="ququq__preis">
-          <h3>
-            QUQUQ <?php echo $title; ?> <?php pll_e("ab"); ?> <?php echo $preis; ?> €<br>
-            <small>
-              <?php if (!empty($preiszusatzbezeichnung)) { ?>
-                <?php echo $preiszusatzbezeichnung; ?>
-              <?php } ?>
-              <?php pll_e("inkl. MwSt. zzgl. Versand"); ?>
-            </small>
-          </h3>
+      <div class="gridable gridable--row">
+        <?php if (!empty($preis)) { ?>
+          <div class="gridable--col col-6 ququq__preis">
+            <h3>
+              QUQUQ <?php echo $title; ?> <?php pll_e("ab"); ?> <?php echo $preis; ?> €<br>
+              <small>
+                <?php if (!empty($preiszusatzbezeichnung)) { ?>
+                  <?php echo $preiszusatzbezeichnung; ?>
+                <?php } ?>
+                <?php pll_e("inkl. MwSt. zzgl. Versand"); ?>
+              </small>
+            </h3>
+          </div>
+        <?php } ?>
+        <div class="gridable--col col-6 ququq__bestellbutton">
+          <?php
+
+          $orderlink = get_field('link_zur_bestellseite', 'option');
+
+          ?>
+          <a href="<?php echo $orderlink; ?>" class="button button--orange">
+            <?php echo str_replace("Box", $title, pll__("Box bestellen")); ?>
+          </a>
         </div>
-      <?php } ?>
+      </div>
 
       <!-- Button Fahrzeugauswahl -->
 

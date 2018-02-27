@@ -6,6 +6,7 @@ pll_register_string("Text", "inkl. MwSt. zzgl. Versand", "Theme Zeichenketten", 
 pll_register_string("Überschrift", "Die Vorteile auf einen Blick", "Theme Zeichenketten", false);
 pll_register_string("Überschrift", "Die Box passt in", "Theme Zeichenketten", false);
 pll_register_string("Buttontext", "Zur Fahrzeugauswahl", "Theme Zeichenketten", false);
+pll_register_string("Buttontext", "Box bestellen", "Theme Zeichenketten", false);
 pll_register_string("Text", "Dein Wagen steht nicht auf der Liste?", "Theme Zeichenketten", false);
 pll_register_string("Text", "Hier findest Du alle Maße mit denen Du prüfen kannst, ob Dein Fahrzeug ggf. kompatibel ist:", "Theme Zeichenketten", true);
 pll_register_string("Linktext", "Voraussetzungen Box", "Theme Zeichenketten", false);

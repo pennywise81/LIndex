@@ -511,6 +511,14 @@ h2 {
 .button--bordered {
   border: 1px solid #fff;
 }
+
+.button--orange,
+.page__content .button--orange {
+  background: #f49e31;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  width: 95%;
+}
 /* QUQUQ Boxen END */
 
 /* MetaSlider */
