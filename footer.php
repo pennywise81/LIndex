@@ -44,7 +44,7 @@
           echo '<a href="' . $link . '" ';
 
           if (has_post_thumbnail($p->ID)) {
-            $img = get_the_post_thumbnail_url($p->ID);
+            $img = get_the_post_thumbnail_url($p->ID, 'medium');
             echo 'style="background-image:url(' . $img . ')" ';
           }
 
