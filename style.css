@@ -37,6 +37,10 @@ h2 {
   font-size: 1rem;
 }
 
+.container--maxwidth {
+  max-width: 1024px;
+}
+
 .page__content a {
   color: #f49e31;
 }
@@ -248,11 +252,15 @@ h2 {
   .page__menu__wrapper li.item-social > a {
     color: #b0b0b0;
   }
+
+  .page__menu__wrapper a {
+    padding: .5rem .5rem;
+  }
 }
 
 @media screen and (min-width: 1075px) {
   .page__menu__wrapper li.item-news {
-    margin-left: 5rem;
+    margin-left: 1rem;
   }
 }
 
